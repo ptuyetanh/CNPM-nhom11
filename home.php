@@ -64,11 +64,20 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active me-2" href="#">ĐĂNG NHẬP</a>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</button>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
+                  aria-expanded="false"><img src="./img/no-image.jpg" alt="" class="rounded-circle" width="36" height="36"></a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown" style="background-color:rgb(255, 145, 0)">
+                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-cart-check me-2"></i>Đơn hàng đã đặt</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-right me-3"></i>Đăng xuất</a></li>
+                </ul>
               </li>
             </ul>
           </div>
