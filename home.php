@@ -61,8 +61,8 @@
           </div>
           <div class="collapse navbar-collapse" id="header">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="order.php"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
+              <li class="nav-item shopping-cart">
+                <a class="nav-link active" aria-current="page"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
@@ -165,7 +165,7 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
               <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
@@ -177,7 +177,7 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
               <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
                 <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
                 <p class="price"><span>1.550.000</span><sup>đ</sup></p>  
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
               <p class="price"><span>450.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
@@ -253,8 +253,37 @@
                   </tr> -->
             </tbody>
         </table>
-        <div class="price-total" style="text-align: right;">
-            <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+        <div class="price-total">
+              <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+              <div class="order-btn">
+                <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
+                  Order!
+                </button>
+                <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Order up!!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-success">
+                          <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  <div class="alert alert-success">
+                      <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </form>
 </section>

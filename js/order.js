@@ -62,3 +62,17 @@ function deleteCart(){
         })
     }
 }
+function inputchange(){
+    var cartItem = document.querySelectorAll("tbody tr")
+    for (var i=0; i < cartItem.length; i++){
+        var inputValue = cartItem[i].querySelector("input")
+        inputValue.addEventListener("change",function(){
+        carttotal()
+        })
+    }
+}
+const cartbtn = document.querySelector(".bi-x-circle")
+const cartshow = document.querySelector(".shopping-cart")
+cartshow.addEventListener("click",function(){
+    document.querySelector(".cart").style.right = "0"
+})

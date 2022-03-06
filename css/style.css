@@ -53,7 +53,7 @@ main .dropdown:hover .dropdown-item{
     width: 50%;
     margin: auto;
     text-align: center;
-    padding-top: 30px;
+    padding: 70px;
 }
 .cart h2{
     margin-bottom: 20px;
@@ -73,4 +73,8 @@ main .dropdown:hover .dropdown-item{
 }
 .cart table tbody tr td:last-child{
     text-align: right;
+}
+.price-total{
+    text-align: right;
+    padding-top: 50px;
 }
