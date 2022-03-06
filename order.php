@@ -19,7 +19,7 @@
     <div class="col-md-12">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top"style="background-color:rgb(255, 145, 0)">
         <div class="container-fluid">
-          <a class="navbar-brand logo" href="#">
+          <a class="navbar-brand logo" href="home.php">
             <img src="./img/logo.PNG" alt="" width="60" height="45">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header"
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse justify-content-md-center ms-5" id="header">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="bi bi-house me-1"></i>TRANG CHỦ</a>
+                <a class="nav-link active" href="home.php"><i class="bi bi-house me-1"></i>TRANG CHỦ</a>
               </li>
               <li class="nav-item dropdown menu_food">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
@@ -59,19 +59,7 @@
               </form>
             </ul>
           </div>
-          <div class="collapse navbar-collapse" id="header">
-            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="order.html"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active me-2" href="#">ĐĂNG NHẬP</a>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</button>
-              </li>
-            </ul>
-          </div>
+         
         </div>
       </nav>
     </div>
@@ -124,131 +112,47 @@
         </button>
       </div>
     </div>
-    <!-- main_nab -->
-    <div class="main_nab">
-      <ul class="nav nav-tabs justify-content-md-center" style="background-color:rgb(255, 145, 0)">
-        <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" style="background-color:rgb(255, 145, 1)" href="#">TẤT CẢ</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button"
-            aria-expanded="false">LỌC SẢN PHẨM</a>
-          <ul class="dropdown-menu" style="background-color:rgb(255, 145, 0)">
-            <li><a class="dropdown-item text-light" href="#">Gà rán</a></li>
-            <li><a class="dropdown-item text-light" href="#">Đồ ăn vặt</a></li>
-            <li><a class="dropdown-item text-light" href="#">pizza</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item text-light" href="#">Đồ uống</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- main_food -->
-    <div class="container-fluid mt-5">
-      <div class="menu row">
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán đu đưa đi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán cô đơn</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán vợ người ta</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Hot chick</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>1.550.000</span><sup>đ</sup></p>  
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà ảo ma canada</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>450.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+ 
   </main>
+  <!-- order -->
   <section class="cart">
-    <h2>Mua đi Bro</h2>
-    <form action="">
-        <table>
-            <thead>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Chọn</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: left;" alt="...">Gà rán đu đưa đi</td>
-                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                    <td style="cursor: pointer;">Xóa</td>
-                </tr>
-                <tr>
-                  <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán cô đơn</td>
-                  <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                  <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                  <td style="cursor: pointer;">Xóa</td>
-                </tr>
+      <h2>Mua đi Bro</h2>
+      <form action="">
+          <table>
+              <thead>
                   <tr>
-                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán vợ người ta</td>
+                      <th>Sản phẩm</th>
+                      <th>Giá</th>
+                      <th>Số lượng</th>
+                      <th>Chọn</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- <tr>
+                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán đu đưa đi</td>
                       <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
                       <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
                       <td style="cursor: pointer;">Xóa</td>
-                  </tr> -->
-            </tbody>
-        </table>
-        <div class="price-total" style="text-align: right;">
-            <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
-        </div>
-    </form>
-</section>
+                  </tr>
+                  <tr>
+                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán cô đơn</td>
+                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                    <td style="cursor: pointer;">Xóa</td>
+                  </tr>
+                    <tr>
+                        <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán vợ người ta</td>
+                        <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                        <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                        <td style="cursor: pointer;">Xóa</td>
+                    </tr> -->
+              </tbody>
+          </table>
+          <div class="price-total" style="text-align: right;">
+              <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+          </div>
+      </form>
+  </section>
   <!-- footer -->
   <footer style="background-color:rgb(255, 145, 0)" >
     <ul class="nav justify-content-center">
@@ -277,7 +181,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-    <script src="order.js"></script>
+  <script src="./js/order.js"></script>
 </body>
 
 </html>
