@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* header */
+.header .menu_food{
+    position: relative;
+    display: inline-block;
+}
+.header .menu_food .dropdown-menu{
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 145, 0);
+    z-index: 1;
+}
+.header .menu_food:hover .dropdown-menu{
+    display: block;
+}
+.header .menu_food .dropdown-item{
+    background-color: rgb(255, 145, 0);
+}
+.header .menu_food:hover .dropdown-item{
+    display: block;
+}
+.header .dropdown .dropdown-item{
+    background-color: rgb(255, 145, 0);
+}
+.header .dropdown:hover .dropdown-item{
+    display: block;
+}
+/* main */
+main .dropdown{
+    position: relative;
+    display: inline-block;
+}
+main .dropdown .dropdown-menu{
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 145, 0);
+    z-index: 1;
+}
+main .dropdown:hover .dropdown-menu{
+    display: block;
+}
+main .dropdown .dropdown-item{
+    background-color: rgb(255, 145, 0);
+}
+main .dropdown:hover .dropdown-item{
+    display: block;
+}
+/* -------------------cart----------------- */
+.contain-fluid{
+    background-image: url(img/main-banner.png);
+    background-repeat: none;
+}
+.cart{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 70px;
+}
+.cart h2{
+    margin-bottom: 20px;
+}
+.cart table{
+    width: 100%;
+}
+.cart table thead tr th:first-child{
+    text-align: left;
+}
+.cart table tr td{
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+}
+.cart table thead tr th:last-child{
+    text-align: right;
+}
+.cart table tbody tr td:last-child{
+    text-align: right;
+}
+.price-total{
+    text-align: right;
+    padding-top: 50px;
+}

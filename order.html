@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/order.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -112,19 +112,18 @@
         </button>
       </div>
     </div>
- 
   </main>
   <!-- order -->
   <section class="cart">
-      <h2>Mua đi Bro</h2>
+    <h2 class="block-title mb-4 text-center">Đơn hàng của Bro</h2>
       <form action="">
-          <table>
-              <thead>
+          <table  class="table align-middle order-list">
+              <thead class="order-cell row">
                   <tr>
-                      <th>Sản phẩm</th>
-                      <th>Giá</th>
-                      <th>Số lượng</th>
-                      <th>Chọn</th>
+                      <th class="table-cell col history-cell-1">Sản phẩm</th>
+                      <th class="table-cell col-2 history-cell-2">Giá</th>
+                      <th class="table-cell col-2 history-cell-3">Số lượng</th>
+                      <th class="table-cell col-2 history-cell-4">Chọn</th>
                   </tr>
               </thead>
               <tbody>
@@ -148,11 +147,41 @@
                     </tr> -->
               </tbody>
           </table>
-          <div class="price-total" style="text-align: right;">
+          <div class="price-total">
               <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+              <div class="order-btn">
+                <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
+                  Order!
+                </button>
+                <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Order up!!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-success">
+                          <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  <div class="alert alert-success">
+                      <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
-      </form>
+    </form>
   </section>
+ 
   <!-- footer -->
   <footer style="background-color:rgb(255, 145, 0)" >
     <ul class="nav justify-content-center">
