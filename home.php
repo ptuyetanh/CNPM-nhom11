@@ -68,7 +68,7 @@
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
                   aria-expanded="false"><img src="./img/no-image.jpg" alt="" class="rounded-circle" width="36" height="36"></a>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown" style="background-color:rgb(255, 145, 0)">
-                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
+                  <li><a class="dropdown-item text-light" href="profile.php"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
