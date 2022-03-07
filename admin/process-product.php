@@ -18,7 +18,7 @@ $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);//bắt định dạng tệp tin
 
 if(isset($_POST["submit"]) && !empty($_FILES["myFile"]["name"])){
-$allowTypes = array('jpg','png','jpeg','gif','pdf');//khai báo mảng để lưu chữ định dang mà bạn upload lên
+$allowTypes = array('jpg','png','jpeg','gif','pdf','JPG');//khai báo mảng để lưu chữ định dang mà bạn upload lên
 if(in_array($fileType, $allowTypes)){
     // Upload file to server
     if(move_uploaded_file($_FILES["myFile"]["tmp_name"], $targetFilePath)){
