@@ -74,7 +74,20 @@ main .dropdown:hover .dropdown-item{
 .cart table tbody tr td:last-child{
     text-align: right;
 }
+.cart-delete{
+    cursor: pointer;
+}
 .price-total{
     text-align: right;
     padding-top: 50px;
+}
+.cart{
+    position: fixed;
+    height: 100vh;
+    width: 400px;
+    right: 0;
+    top: 0;
+    background-color: rgb(245, 177, 0);
+    padding: 120px 35px;
+    overflow: scroll;
 }

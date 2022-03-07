@@ -188,63 +188,72 @@
     </div>
   </main>
   <section class="cart">
-    <h2>Mua đi Bro</h2>
-    <form action="">
-        <table>
-            <thead>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Chọn</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: left;" alt="...">Gà rán đu đưa đi</td>
-                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                    <td style="cursor: pointer;">Xóa</td>
-                </tr>
-                <tr>
-                  <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán cô đơn</td>
-                  <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                  <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                  <td style="cursor: pointer;">Xóa</td>
-                </tr>
+    <h2 class="block-title mb-4 text-center">Đơn hàng của Bro</h2>
+      <form action="">
+          <table  class="table align-middle order-list">
+              <thead class="order-cell">
                   <tr>
-                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán vợ người ta</td>
+                      <th scope="col">Sản phẩm</th>
+                      <th scope="col">Giá</th>
+                      <th scope="col">Số lượng</th>
+                      <th scope="col">Chọn</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- <tr>
+                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán đu đưa đi</td>
                       <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
                       <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
                       <td style="cursor: pointer;">Xóa</td>
-                  </tr> -->
-            </tbody>
-        </table>
-        <div class="price-total">
-          <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
-          <div class="order-btn">
-            <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
-              Order!
-            </button>
-            <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">!!Order up!!</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </tr>
+                  <tr>
+                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán cô đơn</td>
+                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                    <td style="cursor: pointer;">Xóa</td>
+                  </tr>
+                    <tr>
+                        <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán vợ người ta</td>
+                        <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                        <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                        <td style="cursor: pointer;">Xóa</td>
+                    </tr> -->
+              </tbody>
+          </table>
+          <div class="price-total">
+              <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+              <div class="order-btn">
+                <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
+                  Order!
+                </button>
+                <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Order up!!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-success">
+                          <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <div class="alert alert-success">
+                </div>
+              </div>
+              <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  <div class="alert alert-success">
                       <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
     </form>
-</section>
+  </section>
   <!-- footer -->
   <footer style="background-color:rgb(255, 145, 0)" >
     <ul class="nav justify-content-center">
