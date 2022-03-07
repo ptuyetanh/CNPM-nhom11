@@ -41,6 +41,7 @@ function carttotal(){
     var cartTotalA = document.querySelector(".cart .price-total span")
     cartTotalA.innerHTML = totalC.toLocaleString('de-DE')
     console.log(cartTotalA)
+    inputchange()
 }
 //--------------------------------- Delete cart ----------------------------------------
 function deleteCart(){
