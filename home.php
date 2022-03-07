@@ -242,16 +242,7 @@
                   </div>
                 </div>
               </div>
-              <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                  <div class="alert alert-success">
-                      <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
     </form>
   </section>
   <!-- footer -->
