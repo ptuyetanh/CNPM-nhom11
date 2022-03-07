@@ -175,7 +175,7 @@
               <h5 class="card-title"><?php echo $row['name'];?></h5>
               <p class="card-text"><?php echo $row['description'];?></p>
               <p class="price"><span><?php echo $row['price'];?></span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
