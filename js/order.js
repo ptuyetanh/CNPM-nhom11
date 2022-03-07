@@ -26,7 +26,6 @@ var trcontent = '<tr class="order-table row"><td class="table-cell col order-cel
     cartTable.append(addtr)
     carttotal()
     deleteCart()
-    inputchange()
 }
 //---------------------------------- Total price ----------------------------------------
 function carttotal(){
@@ -53,6 +52,7 @@ function deleteCart(){
         var cartItemB = cartDelete.parentElement.parentElement
         cartItemB.remove()
         console.log(cartItemB)
+        carttotal()
         })
     }
 }
