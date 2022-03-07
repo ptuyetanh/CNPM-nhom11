@@ -22,7 +22,6 @@ function addcart(productImg,productName,productPrice){
 var trcontent = '<tr class="order-table row"><td class="table-cell col order-cell-1"> <img src="'+productImg+'" style="width: 70px;" class="card-img-top" alt="..."><span class="title">'+productName+'</span></td><td class="table-cell col order-cell-2"><p class="price"><span>'+productPrice+'</span><sup>đ</sup></p></td><td class="table-cell col-2 order-cell-3"><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td><td class="table-cell col order-cell-4" style="cursor: pointer;"><span class="cart-delete col-2 ">Xóa</span></td></tr>'
     addtr.innerHTML = trcontent
     var cartTable = document.querySelector("tbody")
-    // console.log(cartTable)
     cartTable.append(addtr)
     carttotal()
     deleteCart()
@@ -56,6 +55,7 @@ function deleteCart(){
         })
     }
 }
+//------------------Thay doi so luong---------------------------------------
 function inputchange(){
     var cartItem = document.querySelectorAll("tbody tr")
     for (var i=0; i < cartItem.length; i++){
@@ -65,8 +65,13 @@ function inputchange(){
         })
     }
 }
-const cartbtn = document.querySelector(".bi-x-circle")
+//-------------- mo gio hang ---------------
 const cartshow = document.querySelector(".shopping-cart")
 cartshow.addEventListener("click",function(){
     document.querySelector(".cart").style.right = "0"
+})
+//------------------- Dong gio hang-----------------
+const cartbtn = document.querySelector(".bi-x")
+cartbtn.addEventListener("click",function(){
+    document.querySelector(".cart").style.right = "-100"
 })

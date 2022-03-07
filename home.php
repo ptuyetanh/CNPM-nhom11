@@ -183,11 +183,11 @@
                 }
               }
     ?>
-      
       </div>
     </div>
   </main>
   <section class="cart">
+  <i class="bi bi-x"></i>
     <h2 class="block-title mb-4 text-center">Đơn hàng của Bro</h2>
       <form action="">
           <table  class="table align-middle order-list">
