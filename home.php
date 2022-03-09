@@ -68,7 +68,7 @@
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
                   aria-expanded="false"><img src="./img/no-image.jpg" alt="" class="rounded-circle" width="36" height="36"></a>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown" style="background-color:rgb(255, 145, 0)">
-                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
+                  <li><a class="dropdown-item text-light" href="profile.php"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -157,127 +157,94 @@
     <!-- main_food -->
     <div class="container-fluid mt-5">
       <div class="menu row">
+      <?php
+    $conn = mysqli_connect('localhost','root','','fastfood11');
+    if(!$conn){
+      die("kết nối thất bại");
+    }
+    $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_assoc($result)){
+    ?>
         <div class="col-md">
           <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
+          <?php  $image_name = 'admin/uploads/'.$row["image_name"];
+            echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
             <div class="card-body">
-              <h5 class="card-title">Gà rán đu đưa đi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
+              <h5 class="card-title"><?php echo $row['name'];?></h5>
+              <p class="card-text"><?php echo $row['description'];?></p>
+              <p class="price"><span><?php echo $row['price'];?></span><sup>đ</sup></p>
               <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán cô đơn</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán vợ người ta</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Hot chick</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>1.550.000</span><sup>đ</sup></p>  
-              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà ảo ma canada</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>450.000</span><sup>đ</sup></p>
-              <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
+    <?php     
+                }
+              }
+    ?>
       </div>
     </div>
   </main>
   <section class="cart">
-    <h2>Mua đi Bro</h2>
-    <form action="">
-        <table>
-            <thead>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Chọn</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: left;" alt="...">Gà rán đu đưa đi</td>
-                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                    <td style="cursor: pointer;">Xóa</td>
-                </tr>
-                <tr>
-                  <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán cô đơn</td>
-                  <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
-                  <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
-                  <td style="cursor: pointer;">Xóa</td>
-                </tr>
+  <i class="bi bi-x"></i>
+    <h2 class="block-title mb-4 text-center">Đơn hàng của Bro</h2>
+      <form action="">
+          <table  class="table align-middle order-list">
+              <thead class="order-cell">
                   <tr>
-                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" alt="...">Gà rán vợ người ta</td>
+                      <th scope="col">Sản phẩm</th>
+                      <th scope="col">Giá</th>
+                      <th scope="col">Số lượng</th>
+                      <th scope="col">Chọn</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- <tr>
+                      <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán đu đưa đi</td>
                       <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
                       <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
                       <td style="cursor: pointer;">Xóa</td>
-                  </tr> -->
-            </tbody>
-        </table>
-        <div class="price-total">
-          <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
-          <div class="order-btn">
-            <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
-              Order!
-            </button>
-            <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">!!Order up!!</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="alert alert-success">
-                      <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                  </tr>
+                  <tr>
+                    <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán cô đơn</td>
+                    <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                    <td style="cursor: pointer;">Xóa</td>
+                  </tr>
+                    <tr>
+                        <td> <img src="./img/4.jpg" style="width: 70px; align-items: center;" class="card-img-top" alt="...">Gà rán vợ người ta</td>
+                        <td><p class="price"><span>150.000</span><sup>đ</sup></p></td>
+                        <td><input style="width: 30px; outline: none; text-align: center;" type="number" value="1" min="1"></td>
+                        <td style="cursor: pointer;">Xóa</td>
+                    </tr> -->
+              </tbody>
+          </table>
+          <div class="price-total">
+              <p style="font-weight: bold;">Tổng tiền của bro: <span>0</span><sup>đ</sup></p>
+              <div class="order-btn">
+                <button type="button" class="btn btn-primary" style="background-color:rgb(255, 145, 0)" data-bs-toggle="modal" data-bs-target="#incoming-order">
+                  Order!
+                </button>
+                <div class="modal fade" id="incoming-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Order up!!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="alert alert-success">
+                          <strong>Success!</strong> Cảm ơn bro đã đặt hàng bên mình :))))))))))))))
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
     </form>
-</section>
+  </section>
   <!-- footer -->
   <footer style="background-color:rgb(255, 145, 0)" >
     <ul class="nav justify-content-center">

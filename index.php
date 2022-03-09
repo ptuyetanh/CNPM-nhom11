@@ -148,66 +148,32 @@
     <!-- main_food -->
     <div class="container-fluid mt-5">
       <div class="menu row">
+      <?php
+    $conn = mysqli_connect('localhost','root','','fastfood11');
+    if(!$conn){
+      die("kết nối thất bại");
+    }
+    $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+    $result = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_assoc($result)){
+    ?>
         <div class="col-md">
           <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
+          <?php  $image_name = 'admin/uploads/'.$row["image_name"];
+            echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
             <div class="card-body">
-              <h5 class="card-title">Gà rán đu đưa đi</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
+              <h5 class="card-title"><?php echo $row['name'];?></h5>
+              <p class="card-text"><?php echo $row['description'];?></p>
+              <p class="price"><span><?php echo $row['price'];?></span><sup>đ</sup></p>
               <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán cô đơn</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà rán vợ người ta</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>150.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Hot chick</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-                <p class="price"><span>1.550.000</span><sup>đ</sup></p>  
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card" style="width: 18rem;">
-            <img src="./img/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Gà ảo ma canada</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <p class="price"><span>450.000</span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
-            </div>
-          </div>
-        </div>
+    <?php     
+                }
+              }
+    ?>
       </div>
     </div>
   </main>

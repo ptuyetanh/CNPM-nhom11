@@ -65,20 +65,51 @@
     <main>
         <div class="container">
           <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
+          <form action="process-product.php">
+          <?php
+               if(isset($_SESSION['add'])){
+                   echo $_SESSION['add'];
+               }
+          ?>
+          </form>
           <div>
             <a class="btn pe-3 ps-3 text-light" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
           </div>
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Stt</th>
-                <th scope="col">Tên món ăn</th>
+                <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
-                <th scope="col">Gía</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Thể loại</th>
                 <th scope="col">Sửa</th>
-                <th scope="col">Xóa</th>
               </tr>
             </thead>
+            <tbody>
+            <?php
+                 $conn = mysqli_connect('localhost','root','','fastfood11');
+                 if(!$conn){
+                   die("kết nối thất bại");
+                 }
+                 $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+                 $result = mysqli_query($conn,$sql);
+                 if(mysqli_num_rows($result) > 0){
+                   while($row = mysqli_fetch_assoc($result)){
+                     ?>
+                        <tr> 
+           
+                          <td><?php echo $row['name'];?></td>
+                          <?php  $image_name = 'uploads/'.$row["image_name"];
+                          echo '<td><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
+                          <td><?php echo $row['price'];?></td>
+                          <td><?php echo $row['name_category'];?></td>
+                          <td>sửa</td>
+                        <tr>
+                       <?php     
+                   }
+                 }
+            ?>
+            </tbody>
           </table>
         </div>
     </main>

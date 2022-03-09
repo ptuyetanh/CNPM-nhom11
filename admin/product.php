@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -65,14 +66,24 @@
     <!--main -->
     <main class="main_product">
         <h2 class="text-center">Thêm sản phẩm</h2>
-        <div class="container">
+        <form class="container" action="process-product.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="./img/no-image.jpg" class="img-fluid mt-5" alt="...">
-
+                    <img src="./img/no-image.jpg" class="img-fluid mt-5" alt="" id="image">
+                    <script>
+                        function choosefile(fileinput) {
+                            if(fileinput.files && fileinput.files[0]){
+                                var reader = new FileReader();
+                                reader.onload = function(e){
+                                    $("#image").attr("src", e.target.result);
+                                }
+                                reader.readAsDataURL(fileinput.files[0]);
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="col-md-8">
-                    <form class="product_input mt-5">
+                    <div class="product_input mt-5">
                         <div class="form-floating mt-2 mb-3">
                             <input type="text" id="inputname" name="name" class="form-control" id="floatingInput"
                                 value="">
@@ -90,24 +101,41 @@
                         </div>
                         <div class="mt-4">
                             <label for="disabledSelect">Thể loại</label>
-                            <select id="disabledSelect" class="form-select">
-                                <option>Gà rán</option>
-                                <option>Pizza</option>
-                                <option>đồ ăn vặt</option>
-                                <option>Đồ uống</option>
+                            <select id="disabledSelect" class="form-select" name="category">
+                            <?php
+                                $conn = mysqli_connect('localhost','root','','fastfood11');
+                                if(!$conn){
+                                    die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                                }
+                                $sql="SELECT * FROM category";
+                                $result =mysqli_query($conn,$sql);
+                                if($result>0){
+                                    while($row =mysqli_fetch_assoc($result)){
+                                        $id_category=$row["id_category"];
+                                        $name_category=$row["name_category"];
+                                        ?>
+                                        <option value="<?php echo $id_category;?>"><?php echo $name_category;?></option>
+                                        <?php
+                                    }
+                                }else{
+                                        ?>
+                                    <option value="0">No category</option>
+                            <?php
+                                }
+                            ?>
                             </select>
                         </div>
                         <div class="mt-4">
                             <label for="file">Thêm ảnh</label>
-                            <input type="file" name="myFile" class="form-control " id="file">
+                            <input type="file" name="myFile" class="form-control " id="file" onchange="choosefile(this)">
                         </div>
                         <input type="submit" name="submit" value="Lưu sản phẩm"
                             class="submit_product fs-3 pe-3 ps-3 mt-5 ms-5 pt-1 pb-1 rounded-pill border border-light"
                             style="background-color:rgb(255, 145, 0)">
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </main>
     <!-- footer -->
     <!-- JavaScript Bundle with Popper -->
