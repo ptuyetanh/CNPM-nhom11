@@ -27,20 +27,23 @@ if(in_array($fileType, $allowTypes)){
         //$sql="UPDATE product SET image_name='$fileName' WHERE id_product";
         $insert =  mysqli_query($conn,$sql);
         if($insert==true){
-            $_SESSION['add'] = "<h3 class='success'>Sản phẩm đã được thêm thành công</h3>";
-            header("Location:index.php");
+            $add = "Sản phẩm đã được thêm thành công";
+            header("Location:index.php?add=$add");
         }else{
-            $_SESSION['add'] = "<h3 class='success'>Sản phẩm thêm không thành công</h3>";
-            header("Location:index.php");
+            $error = "Sản phẩm thêm không thành công";
+            header("Location:index.php?error=$error");
         } 
     }else{
-        $statusMsg = "Sorry, there was an error uploading your file.";
+        $error = "Sản phẩm thêm không thành công";
+        header("Location:index.php?error=$error");
     }
 }else{
-    $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+    $error = "Sản phẩm thêm không thành công";
+    header("Location:index.php?error=$error");
 }
 }else{
-$statusMsg = 'Please select a file to upload.';
+    $error = "Sản phẩm thêm không thành công";
+    header("Location:index.php?error=$error");
 }
 // Display status message
 echo $statusMsg;
