@@ -13,7 +13,7 @@
        $result = mysqli_query($conn,$sql);
        if(mysqli_num_rows($result) >0){
            //cấp thẻ làm việc
-           $_SESSION['isLoginOK']= $email;
+           $_SESSION['isLoginOK'] = $email;
           header("location:index.php");
        }else{
            $error = "Bạn nhập thông tin email hoặc mật khẩu không chính xác";

@@ -1,9 +1,8 @@
 <?php
-   session_start();
-   if(!isset($_SESSION['isLogInOK'])){
-     header("location:login.php");
-   }
-   $email= $_SESSION["email"];
+  session_start();
+  if(!isset($_SESSION['isLoginOK'])){
+    header("location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +58,7 @@
                                     <span>Tendangnhap</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown">
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-3"></i>Đăng
+                                    <li><a class="dropdown-item" href="login.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng
                                             xuất</a></li>
                                 </ul>
                             </li>

@@ -102,7 +102,7 @@ $id= $_SESSION["username_id"];
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-right me-3"></i>Đăng xuất</a></li>
+                  <li><a class="dropdown-item text-light" href="login.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng xuất</a></li>
                 </ul>
               </li>
             </ul>
