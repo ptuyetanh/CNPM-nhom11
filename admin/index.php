@@ -71,13 +71,16 @@
     <main>
         <div class="container">
           <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
-          <form action="process-product.php">
           <?php
-               if(isset($_SESSION['add'])){
-                   echo $_SESSION['add'];
-               }
-          ?>
-          </form>
+        if(isset($_GET['add'])){
+            echo "<h5 style='color:green'> {$_GET['add']} </h5>";
+        }
+        ?>
+        <?php
+        if(isset($_GET['error'])){
+            echo "<h5 style='color:red'> {$_GET['error']} </h5>";
+        }
+        ?>
           <div>
             <a class="btn pe-3 ps-3 text-light" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
           </div>
