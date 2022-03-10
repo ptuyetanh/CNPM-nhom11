@@ -65,10 +65,11 @@
                 <a class="nav-link active" aria-current="page" href=""><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active me-2" href="#">ĐĂNG NHẬP</a>
+                <a class="nav-link active me-2" href="login.php">ĐĂNG NHẬP</a>
               </li>
               <li class="nav-item">
-                <button class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</button>
+                <!-- <button class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</button> -->
+                <a href="register.php" class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</a>
               </li>
             </ul>
           </div>

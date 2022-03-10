@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION["username_id"])){
+  header("location:login.php");
+}
+$id= $_SESSION["username_id"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Fastfood11</title>
   <link rel="stylesheet" href="./css/style.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -66,7 +73,26 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
-                  aria-expanded="false"><img src="./img/no-image.jpg" alt="" class="rounded-circle" width="36" height="36"></a>
+                  aria-expanded="false">
+                  <?php
+                  $conn = mysqli_connect('localhost','root','','fastfood11');
+                  if(!$conn){
+                    die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                }
+                //truy vấn cơ sở dữ liệu
+                $sql = "SELECT * FROM user_account where id = $id";
+                $result =mysqli_query($conn,$sql);
+                if(mysqli_num_rows($result)){
+                    while($row =mysqli_fetch_assoc($result)){
+                   $avatar = 'admin/uploads/'.$row["avatar"];
+                  echo '<img src="'.$avatar.'" alt="" class="rounded-circle" width="36"
+                    height="36">'?>
+                  <span><?php echo $row['username'];?></span>
+                </a>
+                <?php
+                    }
+                  }
+                ?>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown" style="background-color:rgb(255, 145, 0)">
                   <li><a class="dropdown-item text-light" href="profile.php"><i class="bi bi-person-circle me-2"></i>Thông tin cá nhân</a></li>
                   <li>

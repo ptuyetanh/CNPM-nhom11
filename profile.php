@@ -1,3 +1,19 @@
+<?php
+session_start();
+if(!isset($_SESSION["username_id"])){
+  header("location:login.php");
+}
+$id= $_SESSION["username_id"];
+$conn = mysqli_connect('localhost','root','','fastfood11');
+if(!$conn){
+    die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+}
+//truy vấn cơ sở dữ liệu
+$sql = "SELECT * FROM user_account where id = $id";
+$result =mysqli_query($conn,$sql);
+if(mysqli_num_rows($result)){
+    while($row =mysqli_fetch_assoc($result)){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,8 +84,13 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
-                  aria-expanded="false"><img src="./img/no-image.jpg" alt="" class="rounded-circle" width="36"
-                    height="36"></a>
+                  aria-expanded="false">
+                  <?php
+                   $avatar = 'admin/uploads/'.$row["avatar"];
+                  echo '<img src="'.$avatar.'" alt="" class="rounded-circle" width="36"
+                    height="36">'?>
+                  <span><?php echo $row['username'];?></span>
+                  </a>
                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown"
                   style="background-color:rgb(255, 145, 0)">
                   <li><a class="dropdown-item text-light" href="#"><i class="bi bi-person-circle me-2"></i>Thông tin cá
@@ -95,10 +116,17 @@
   <!--main -->
   <main class="main_product">
     <h3 class="text-center profile" style="margin-top:100px">Thông tin cá nhân</h3>
-    <form class="container" action="" method="post" enctype="multipart/form-data">
+    <?php
+      if(isset($_GET['profile'])){
+          echo "<h5 style='color:green' class='text-center'> {$_GET['profile']} </h5>";
+      }
+      ?>
+    <form class="container" action="process-profile.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-4">
-          <img src="./img/no-image.jpg" class="img-fluid rounded-circle mt-5" alt="" id="image">
+          <?php
+           $avatar = 'admin/uploads/'.$row["avatar"];
+          echo '<img src="'.$avatar.'" class="img-fluid rounded-circle mt-5" alt="" id="image">'?>
           <script>
             function choosefile(fileinput) {
               if (fileinput.files && fileinput.files[0]) {
@@ -114,26 +142,26 @@
         <div class="col-md-8">
           <div class="product_input mt-5">
             <div class="form-floating mt-2 mb-3">
-              <input type="text" id="inputname" name="name" class="form-control" id="floatingInput" value="">
+              <input type="text" id="inputname" name="name" class="form-control" id="floatingInput" value="<?php echo $row['fullname']?>">
               <label for="floatingInput">Họ và tên</label>
             </div>
             <div class="form-floating mt-4">
-              <input type="text" id="inputaddress" name="address" class="form-control" id="floatingInput" value="">
+              <input type="text" id="inputaddress" name="address" class="form-control" id="floatingInput" value="<?php echo $row['address']?>">
               <label for="floatingInput">Địa chỉ</label>
             </div>
             <div class="form-floating mt-4">
               <input type="text" id="inputphonenumber" name="phonenumber" class="form-control" id="floatingInput"
-                value="">
+                value="<?php echo $row['phonenumber']?>">
               <label for="floatingInput">Số điện thoại</label>
             </div>
             <div class="form-floating row">
               <label for="birthday" class="mb-5 text-secondary">Ngày sinh</label><br>
-              <input type="date" id="birthday" name="Dateofbirth" class="col-md-6 mt-5 ms-3"
-                value="<?php echo $row['Dateofbirth']?>">
+              <input type="date" id="birthday" name="dateofbirth" class="col-md-6 mt-5 ms-3"
+                value="<?php echo $row['dateofbirth']?>">
             </div>
             <div class="mt-4">
               <label for="file">Thêm ảnh</label>
-              <input type="file" name="myFile" class="form-control " id="file" onchange="choosefile(this)">
+              <input type="file" name="myFile" class="form-control " id="file" value="<?php echo $row['avatar']?>" onchange="choosefile(this)">
             </div>
             <input type="submit" name="submit" value="Chỉnh sửa thông tin"
               class="submit_product fs-3 pe-3 ps-3 mt-5 ms-5 pt-1 pb-1 rounded-pill border border-light"
@@ -142,6 +170,10 @@
         </div>
       </div>
     </form>
+  <?php
+              }
+          }
+  ?>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
