@@ -72,10 +72,15 @@
           <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
           <form action="process-product.php">
           <?php
-               if(isset($_SESSION['add'])){
-                   echo $_SESSION['add'];
-               }
-          ?>
+      if(isset($_GET['add'])){
+          echo "<h5 style='color:green' class='text-center'> {$_GET['add']} </h5>";
+      }
+      ?>
+         <?php
+      if(isset($_GET['error'])){
+          echo "<h5 style='color:red' class='text-center'> {$_GET['error']} </h5>";
+      }
+      ?>
           </form>
           <div>
             <a class="btn pe-3 ps-3 text-light" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
@@ -85,6 +90,7 @@
               <tr>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
+                <th scope="col">Mô tả </th>
                 <th scope="col">Giá</th>
                 <th scope="col">Thể loại</th>
                 <th scope="col">Sửa</th>
@@ -106,9 +112,10 @@
                           <td><?php echo $row['name'];?></td>
                           <?php  $image_name = 'uploads/'.$row["image_name"];
                           echo '<td><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
+                           <td><?php echo $row['description'];?></td>
                           <td><?php echo $row['price'];?></td>
                           <td><?php echo $row['name_category'];?></td>
-                          <td>sửa</td>
+                          <td><a href="repair-product.php?id=<?php echo $row['id_product'];?>">sửa</a></td>
                         <tr>
                        <?php     
                    }

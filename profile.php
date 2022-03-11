@@ -103,7 +103,7 @@ if(mysqli_num_rows($result)){
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-right me-3"></i>Đăng
+                  <li><a class="dropdown-item text-light" href="logout.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng
                       xuất</a></li>
                 </ul>
               </li>
@@ -119,6 +119,11 @@ if(mysqli_num_rows($result)){
     <?php
       if(isset($_GET['profile'])){
           echo "<h5 style='color:green' class='text-center'> {$_GET['profile']} </h5>";
+      }
+      ?>
+      <?php
+      if(isset($_GET['error'])){
+          echo "<h5 style='color:red' class='text-center'> {$_GET['error']} </h5>";
       }
       ?>
     <form class="container" action="process-profile.php" method="post" enctype="multipart/form-data">

@@ -38,16 +38,20 @@ if(in_array($fileType, $allowTypes)){
             $profile = "Chỉnh sửa thông tin thành công";
             header("Location:profile.php?profile=$profile");
         }else{
-            header("Location:profile.php");
+            $error = "Chỉnh sửa thông tin thất bại";
+            header("Location:profile.php?error=$error");
         } 
     }else{
-        $statusMsg = "Sorry, there was an error uploading your file.";
+        $error = "Chỉnh sửa thông tin thất bại";
+        header("Location:profile.php?error=$error");
     }
 }else{
-    $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+    $error = "Chỉnh sửa thông tin thất bại";
+    header("Location:profile.php?error=$error");
 }
 }else{
-$statusMsg = 'Please select a file to upload.';
+    $error = "Chỉnh sửa thông tin thất bại";
+    header("Location:profile.php?error=$error");
 }
 // Display status message
 echo $statusMsg;
