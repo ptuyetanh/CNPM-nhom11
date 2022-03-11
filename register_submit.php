@@ -19,6 +19,8 @@
             $sql="INSERT INTO user_account (email,username, user_password) VALUES ('$email','$username','$password')";
             mysqli_query($conn,$sql);
             header("location:login.php");
+           
+
 
         // require 'PHPMailer/Exception.php';
         // require 'PHPMailer/PHPMailer.php';
