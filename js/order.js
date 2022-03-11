@@ -55,7 +55,7 @@ function deleteCart(){
         })
     }
 }
-//------------------Thay doi so luong---------------------------------------
+//--------------------Thay doi so luong--------------------------------------
 function inputchange(){
     var cartItem = document.querySelectorAll("tbody tr")
     for (var i=0; i < cartItem.length; i++){
@@ -65,13 +65,18 @@ function inputchange(){
         })
     }
 }
-//-------------- mo gio hang ---------------
+//-------------------- mo gio hang ------------------------------------------
 const cartshow = document.querySelector(".shopping-cart")
 cartshow.addEventListener("click",function(){
     document.querySelector(".cart").style.right = "0"
 })
-//------------------- Dong gio hang-----------------
+//------------------- Dong gio hang------------------------------------------
 const cartbtn = document.querySelector(".bi-x")
 cartbtn.addEventListener("click",function(){
     document.querySelector(".cart").style.right = "-100"
+})
+//----------------thong bao sau khi an nut order-----------------------------
+const btnOrder = document.querySelector(".btn-order")
+btnOrder.addEventListener("click", function(){
+    alert("Success!! Thank you for order!")
 })
