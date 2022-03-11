@@ -55,7 +55,6 @@
                                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown"
                                     data-bs-toggle="dropdown" aria-expanded="false"><img src="./img/no-image.jpg" alt=""
                                         class="rounded-circle" width="36" height="36">
-                                    <span>Tendangnhap</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown">
                                     <li><a class="dropdown-item" href="login.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng
@@ -71,25 +70,21 @@
     <main>
         <div class="container">
           <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
+          <form action="process-product.php">
           <?php
-        if(isset($_GET['add'])){
-            echo "<h5 style='color:green'> {$_GET['add']} </h5>";
-        }
-        ?>
-        <?php
-        if(isset($_GET['error'])){
-            echo "<h5 style='color:red'> {$_GET['error']} </h5>";
-        }
-        ?>
+               if(isset($_SESSION['add'])){
+                   echo $_SESSION['add'];
+               }
+          ?>
+          </form>
           <div>
             <a class="btn pe-3 ps-3 text-light" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
           </div>
           <table class="table">
             <thead>
               <tr>
-              <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
-                <th scope="col">Mô tả </th>
                 <th scope="col">Giá</th>
                 <th scope="col">Thể loại</th>
                 <th scope="col">Sửa</th>
@@ -108,13 +103,12 @@
                      ?>
                         <tr> 
            
-                        <td><?php echo $row['name'];?></td>
+                          <td><?php echo $row['name'];?></td>
                           <?php  $image_name = 'uploads/'.$row["image_name"];
                           echo '<td><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
-                          <td><?php echo $row['description'];?></td>
                           <td><?php echo $row['price'];?></td>
                           <td><?php echo $row['name_category'];?></td>
-                          <td><a href="repair-product.php?id=<?php echo $row['id_product'];?>">sửa</a></td>
+                          <td>sửa</td>
                         <tr>
                        <?php     
                    }
