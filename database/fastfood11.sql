@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 08, 2022 lúc 02:56 PM
+-- Thời gian đã tạo: Th3 11, 2022 lúc 04:21 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 8.0.9
 
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `password` int(255) NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `full_name`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 111, 'admin@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -71,6 +78,16 @@ CREATE TABLE `order` (
   `total _money` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`id_order`, `amount`, `date_order`, `id_product`, `id`, `total _money`) VALUES
+(4, 7, '2022-03-10 04:10:08', 13, 41, 0),
+(5, 4, '2022-03-10 04:10:08', 16, 41, 0),
+(6, 7, '2022-03-10 04:10:30', 13, 41, 0),
+(7, 4, '2022-03-10 04:10:30', 16, 41, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -94,7 +111,19 @@ INSERT INTO `product` (`id_product`, `name`, `description`, `price`, `image_name
 (4, 'gÃ ', 'ngon ngon', '30.000', 'ga gion cay.jpg', 1),
 (5, 'pizza bÃ²', 'ngon ngon', '100.000', 'pizza bÃ².jpeg', 2),
 (6, 'pizza gÃ ', 'ngon ngon', '100.000', 'pizza gÃ .JPG', 2),
-(7, 'coca-cola', 'uá»‘ng kÃ¨m khi Äƒn ', '10.000', 'coca-cola.jpg', 4);
+(7, 'coca-cola', 'uá»‘ng kÃ¨m khi Äƒn ', '10.000', 'coca-cola.jpg', 4),
+(8, 'pizza bÃ²', 'siÃªu ngon', '100.000', 'pizza bÃ².jpeg', 2),
+(9, 'gÃ ', 'ngon ngon', '30.000', 'gÃ  truyá»n thá»‘ng.jpg', 1),
+(10, 'pizza gÃ ', 'ngon ngon', '100.000', 'pizza gÃ .JPG', 2),
+(11, 'gÃ ', 'ngon ngon', '30.000', 'ga tiÃªu.jpg', 1),
+(12, 'gÃ ', 'siÃªu ngon', '30.000', 'ga gion cay.jpg', 1),
+(13, 'coca-cola', 'uá»‘ng kÃ¨m khi Äƒn ', '10.000', 'coca-cola.jpg', 4),
+(14, 'gÃ ', 'ngon ngon', '30.000', 'gÃ  truyá»n thá»‘ng.jpg', 1),
+(15, 'coca-cola', 'ngon ngon', '10.000', 'coca-cola.jpg', 4),
+(16, 'gÃ ', 'siÃªu ngon', '30.000', 'ga tiÃªu.jpg', 1),
+(17, 'pizza gÃ ', 'ngon ngon', '30.000', 'ga tiÃªu.jpg', 1),
+(18, '', '', '', 'ga gion cay.jpg', 1),
+(19, 'pizza gÃ ', 'ngon ngon', '30.000', 'pizza bÃ².jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -112,8 +141,16 @@ CREATE TABLE `user_account` (
   `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phonenumber` int(11) NOT NULL,
-  `date of birth` date NOT NULL
+  `dateofbirth` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user_account`
+--
+
+INSERT INTO `user_account` (`id`, `email`, `user_password`, `username`, `fullname`, `avatar`, `status`, `address`, `phonenumber`, `dateofbirth`) VALUES
+(41, 'phamtuyetanh2@gmail.com', '$2y$10$EFXSdjcnF8jab8aThQSb0O6oKcHO8760jhd8BbvrfI1Fidnqz1mQ6', 'tuyetanh', 'Pháº¡m', 'coca-cola.jpg', NULL, 'BÃ¬nh Giang', 2147483647, '2001-03-03'),
+(42, 'phamtuyetanh2@gmail.com', '$2y$10$xGsrO6lV/5PFVoYhuQlqCOnIuhjahFCNPxtn/WBzeZiy4K7LNBzS6', 'hihi', '', '', NULL, '', 0, '0000-00-00');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -160,7 +197,7 @@ ALTER TABLE `user_account`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -172,19 +209,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_order` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -194,8 +231,8 @@ ALTER TABLE `user_account`
 -- Các ràng buộc cho bảng `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `fk_foreign_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_foreign_user` FOREIGN KEY (`id`) REFERENCES `user_account` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_foreign_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
+  ADD CONSTRAINT `fk_foreign_user` FOREIGN KEY (`id`) REFERENCES `user_account` (`id`);
 
 --
 -- Các ràng buộc cho bảng `product`

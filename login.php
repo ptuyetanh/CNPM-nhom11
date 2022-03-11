@@ -47,7 +47,7 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
 							
 							<div class="input">
 								<div class="inputcon1">  
-									<input type="text" name="username" required autoforcus placeholder="Số điện thoại, tên người dùng hoặc email">	
+									<input type="text" name="username" required autoforcus placeholder="tên người dùng ">	
 								</div>
 								<div class="inputcon2">  
 									<input type="password" name="password" required autoforcus placeholder="Mật khẩu">

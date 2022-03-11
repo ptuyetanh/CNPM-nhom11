@@ -87,8 +87,9 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Tên sản phẩm</th>
+              <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
+                <th scope="col">Mô tả </th>
                 <th scope="col">Giá</th>
                 <th scope="col">Thể loại</th>
                 <th scope="col">Sửa</th>
@@ -107,12 +108,13 @@
                      ?>
                         <tr> 
            
-                          <td><?php echo $row['name'];?></td>
+                        <td><?php echo $row['name'];?></td>
                           <?php  $image_name = 'uploads/'.$row["image_name"];
                           echo '<td><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
+                          <td><?php echo $row['description'];?></td>
                           <td><?php echo $row['price'];?></td>
                           <td><?php echo $row['name_category'];?></td>
-                          <td>sửa</td>
+                          <td><a href="repair-product.php?id=<?php echo $row['id_product'];?>">sửa</a></td>
                         <tr>
                        <?php     
                    }
