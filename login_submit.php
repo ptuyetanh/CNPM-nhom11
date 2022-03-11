@@ -29,12 +29,15 @@
                        
                 }
                 else{
-                    echo "sai";
-                    echo $status;
+                    echo '<script type="text/javascript">alert("sai mật khẩu"); history.back();</script>';
                 }
+            }
+            else{
+                echo '<script type="text/javascript">alert("sai tài khoản hoặc mật khẩu"); history.back();</script>';
             }
             
         }
+        
 
     }
 ?>
