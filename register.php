@@ -46,7 +46,7 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
                                 <div class="top">             
                                     <div class="form-group">
                                         <div class="check_email">
-                                        <input type="text" id="email" name="email" class="form-control input-lg" required
+                                        <input type="email" id="email" name="email" class="form-control input-lg" required
                                             autoforcus placeholder="Email">
                                         <!-- <span class="material-icons-outlined correct_email">check_circle_outline</span>
                                         <span class="material-icons-outlined wrong_email" >cancel</span> -->

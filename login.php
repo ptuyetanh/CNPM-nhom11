@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Chúc mừng 8/3</title>
+		<title>fastfood</title>
 		<link rel="shortcut icon" href="./rose.png">
 		<link rel="stylesheet" href="https://use.typekit.net/eqx3jwb.css">
 		<link rel="stylesheet" type="text/css" href="css/login.css">
@@ -47,7 +47,7 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
 							
 							<div class="input">
 								<div class="inputcon1">  
-									<input type="text" name="username" required autoforcus placeholder="Số điện thoại, tên người dùng hoặc email">	
+									<input type="text" name="username" required autoforcus placeholder="tên người dùng ">	
 								</div>
 								<div class="inputcon2">  
 									<input type="password" name="password" required autoforcus placeholder="Mật khẩu">

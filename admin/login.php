@@ -59,14 +59,10 @@ font-weight: 300;
                 </div>  
                 <div class="form-group">  
                     <label for="exampleInputPassword1">Enter Password </label>  
-                    <a href="#" style="float:right;font-size:12px;"> Forgot password? </a>  
                     <input type="password" class="form-control form-control-sm" name="txtPass" id="exampleInputPassword1">  
                 </div>  
-                <button type="submit" class="btn btn-primary btn-block" name="btnSignIn"> Sign in </button>  
-                  
-                <div class="sign-up">  
-                    Don't have an account? <a href="#"> Create One </a>  
-                </div>  
+                <button type="submit" class="btn-block border border-light" name="btnSignIn" style="background-color:rgb(255, 145, 0)"> Sign in 
+                </button>   
                 <?php
                 if(isset($_GET['error'])){
                   echo "<h5 style = 'color:red'> {$_GET['error']} </h5>";

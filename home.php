@@ -46,7 +46,11 @@ $id= $_SESSION["username_id"];
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item text-light" href="#">Pizza</a></li>
+                  <li><a class="dropdown-item text-light" href="#">Đồ ăn vặt</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item text-light" href="#">pizza</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -102,7 +106,7 @@ $id= $_SESSION["username_id"];
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item text-light" href="#"><i class="bi bi-box-arrow-right me-3"></i>Đăng xuất</a></li>
+                  <li><a class="dropdown-item text-light" href="login.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng xuất</a></li>
                 </ul>
               </li>
             </ul>
@@ -170,7 +174,13 @@ $id= $_SESSION["username_id"];
             aria-expanded="false">LỌC SẢN PHẨM</a>
           <ul class="dropdown-menu" style="background-color:rgb(255, 145, 0)">
             <li><a class="dropdown-item text-light" href="#">Gà rán</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item text-light" href="#">Đồ ăn vặt</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item text-light" href="#">pizza</a></li>
             <li>
               <hr class="dropdown-divider">

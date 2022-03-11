@@ -104,19 +104,8 @@ if(isset($_POST["sửa"])){
         <h2 class="text-center">Sửa sản phẩm</h2>
         <form class="container" action="" method="post" enctype="multipart/form-data">
             <div class="row">
-            <div class="col-md-4">
-                    <img src="./img/no-image.jpg" class="img-fluid mt-5" alt="" id="image">
-                    <script>
-                        function choosefile(fileinput) {
-                            if(fileinput.files && fileinput.files[0]){
-                                var reader = new FileReader();
-                                reader.onload = function(e){
-                                    $("#image").attr("src", e.target.result);
-                                }
-                                reader.readAsDataURL(fileinput.files[0]);
-                            }
-                        }
-                    </script>
+            <div class="col-md-3">
+                    
                 </div>
                 
                 <div class="col-md-8">
@@ -166,8 +155,7 @@ if(isset($_POST["sửa"])){
                             </select>
                         </div>
                         <div class="mt-4">
-                            <label for="file">Thêm ảnh</label>
-                            <input type="file" name="myFile" class="form-control " id="file" onchange="choosefile(this)">
+                            
                         </div>
                         <input type="submit" name="sửa" value="sửa"
                             class="submit_product fs-3 pe-3 ps-3 mt-5 ms-5 pt-1 pb-1 rounded-pill border border-light"

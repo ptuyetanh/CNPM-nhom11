@@ -19,7 +19,7 @@
     <div class="col-md-12">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top"style="background-color:rgb(255, 145, 0)">
         <div class="container-fluid">
-          <a class="navbar-brand logo" href="#">
+          <a class="navbar-brand logo" href="index.php">
             <img src="./img/logo.PNG" alt="" width="60" height="45">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header"
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse justify-content-md-center ms-5" id="header">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" href="#"><i class="bi bi-house me-1"></i>TRANG CHỦ</a>
+                <a class="nav-link active" href="index.php"><i class="bi bi-house me-1"></i>TRANG CHỦ</a>
               </li>
               <li class="nav-item dropdown menu_food">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
@@ -40,6 +40,10 @@
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item text-light" href="#">Pizza</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item text-light" href="#">Đồ ăn vặt</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -62,7 +66,7 @@
           <div class="collapse navbar-collapse" id="header">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=""><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
+                <a class="nav-link active" aria-current="page" href="login.php"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active me-2" href="login.php">ĐĂNG NHẬP</a>
@@ -136,7 +140,13 @@
             aria-expanded="false">LỌC SẢN PHẨM</a>
           <ul class="dropdown-menu" style="background-color:rgb(255, 145, 0)">
             <li><a class="dropdown-item text-light" href="#">Gà rán</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item text-light" href="#">Đồ ăn vặt</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item text-light" href="#">pizza</a></li>
             <li>
               <hr class="dropdown-divider">
@@ -167,7 +177,7 @@
               <h5 class="card-title"><?php echo $row['name'];?></h5>
               <p class="card-text"><?php echo $row['description'];?></p>
               <p class="price"><span><?php echo $row['price'];?></span><sup>đ</sup></p>
-              <a href="#" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
+              <a href="login.php" class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)">Đặt hàng</a>
             </div>
           </div>
         </div>
