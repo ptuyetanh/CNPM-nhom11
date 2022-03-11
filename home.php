@@ -303,7 +303,7 @@ $id= $_SESSION["username_id"];
           const toast = document.createElement('div');
           toast.classList.add('toast');
           toaast.innerHTML ='
-          <div class="toast__icon"><i class="bi bi-check-circle"></i></div><div class="toast__body"><h3 class="toast_title">Success!!</h3><p class="toast__msg">Cảm ơn bạn đã đặt hàng bên mình</p></div><div class="toast__close"><i class="bi bi-x"></i></div>';
+          <div class="toast-icon"><i class="bi bi-check-circle"></i></div><div class="toast-body"><h3 class="toast-title">Success!!</h3><p class="toast-msg">Cảm ơn bạn đã đặt hàng bên mình</p></div><div class="toast-close"><i class="bi bi-x"></i></div>';
           main.appendChild(toast);
           setTimeout(function(){
             main.removeChild(toast);
