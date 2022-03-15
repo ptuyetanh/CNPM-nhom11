@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 11, 2022 lúc 04:21 AM
--- Phiên bản máy phục vụ: 10.4.20-MariaDB
--- Phiên bản PHP: 8.0.9
+-- Thời gian đã tạo: Th3 15, 2022 lúc 02:50 PM
+-- Phiên bản máy phục vụ: 10.4.22-MariaDB
+-- Phiên bản PHP: 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `fastfood11`
 --
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `admin`
---
-
-CREATE TABLE `admin` (
-  `id_admin` int(10) UNSIGNED NOT NULL,
-  `full_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` int(255) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `admin`
---
-
-INSERT INTO `admin` (`id_admin`, `full_name`, `username`, `password`, `email`) VALUES
-(1, 'admin', 'admin', 111, 'admin@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -78,16 +57,6 @@ CREATE TABLE `order` (
   `total _money` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `order`
---
-
-INSERT INTO `order` (`id_order`, `amount`, `date_order`, `id_product`, `id`, `total _money`) VALUES
-(4, 7, '2022-03-10 04:10:08', 13, 41, 0),
-(5, 4, '2022-03-10 04:10:08', 16, 41, 0),
-(6, 7, '2022-03-10 04:10:30', 13, 41, 0),
-(7, 4, '2022-03-10 04:10:30', 16, 41, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -102,28 +71,6 @@ CREATE TABLE `product` (
   `image_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_category` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `product`
---
-
-INSERT INTO `product` (`id_product`, `name`, `description`, `price`, `image_name`, `id_category`) VALUES
-(4, 'gÃ ', 'ngon ngon', '30.000', 'ga gion cay.jpg', 1),
-(5, 'pizza bÃ²', 'ngon ngon', '100.000', 'pizza bÃ².jpeg', 2),
-(6, 'pizza gÃ ', 'ngon ngon', '100.000', 'pizza gÃ .JPG', 2),
-(7, 'coca-cola', 'uá»‘ng kÃ¨m khi Äƒn ', '10.000', 'coca-cola.jpg', 4),
-(8, 'pizza bÃ²', 'siÃªu ngon', '100.000', 'pizza bÃ².jpeg', 2),
-(9, 'gÃ ', 'ngon ngon', '30.000', 'gÃ  truyá»n thá»‘ng.jpg', 1),
-(10, 'pizza gÃ ', 'ngon ngon', '100.000', 'pizza gÃ .JPG', 2),
-(11, 'gÃ ', 'ngon ngon', '30.000', 'ga tiÃªu.jpg', 1),
-(12, 'gÃ ', 'siÃªu ngon', '30.000', 'ga gion cay.jpg', 1),
-(13, 'coca-cola', 'uá»‘ng kÃ¨m khi Äƒn ', '10.000', 'coca-cola.jpg', 4),
-(14, 'gÃ ', 'ngon ngon', '30.000', 'gÃ  truyá»n thá»‘ng.jpg', 1),
-(15, 'coca-cola', 'ngon ngon', '10.000', 'coca-cola.jpg', 4),
-(16, 'gÃ ', 'siÃªu ngon', '30.000', 'ga tiÃªu.jpg', 1),
-(17, 'pizza gÃ ', 'ngon ngon', '30.000', 'ga tiÃªu.jpg', 1),
-(18, '', '', '', 'ga gion cay.jpg', 1),
-(19, 'pizza gÃ ', 'ngon ngon', '30.000', 'pizza bÃ².jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -150,17 +97,12 @@ CREATE TABLE `user_account` (
 
 INSERT INTO `user_account` (`id`, `email`, `user_password`, `username`, `fullname`, `avatar`, `status`, `address`, `phonenumber`, `dateofbirth`) VALUES
 (41, 'phamtuyetanh2@gmail.com', '$2y$10$EFXSdjcnF8jab8aThQSb0O6oKcHO8760jhd8BbvrfI1Fidnqz1mQ6', 'tuyetanh', 'Pháº¡m', 'coca-cola.jpg', NULL, 'BÃ¬nh Giang', 2147483647, '2001-03-03'),
-(42, 'phamtuyetanh2@gmail.com', '$2y$10$xGsrO6lV/5PFVoYhuQlqCOnIuhjahFCNPxtn/WBzeZiy4K7LNBzS6', 'hihi', '', '', NULL, '', 0, '0000-00-00');
+(42, 'phamtuyetanh2@gmail.com', '$2y$10$xGsrO6lV/5PFVoYhuQlqCOnIuhjahFCNPxtn/WBzeZiy4K7LNBzS6', 'hihi', '', '', NULL, '', 0, '0000-00-00'),
+(44, 'phamtuyetanh2@gmail.com', '$2y$10$H2tx8RXkFxPLvW1gYTeqxuE1xp43vRgZTIYOL/XXEZSErwG8lzIQe', 'tuyetanh04', '', '', NULL, '', 0, '0000-00-00');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
-
---
--- Chỉ mục cho bảng `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Chỉ mục cho bảng `category`
@@ -194,12 +136,6 @@ ALTER TABLE `user_account`
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
@@ -215,13 +151,13 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
