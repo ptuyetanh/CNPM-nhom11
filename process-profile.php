@@ -13,7 +13,7 @@
     $address=$_POST['address'];
     $dateofbirth=$_POST['dateofbirth'];
     if(isset($_POST["submit"])){
-    $sql="UPDATE user_account SET fullname='$name',address='$address',phonenumber='$phonenumber',dateofbirth='$dateofbirth' WHERE id=$id";
+    $sql="UPDATE account SET fullname='$name',address='$address',phonenumber='$phonenumber',dateofbirth='$dateofbirth' WHERE id=$id";
         $ketqua = mysqli_query($conn,$sql);
     header("location: profile.php"); 
     }
@@ -32,7 +32,7 @@ if(in_array($fileType, $allowTypes)){
     // Upload file to server
     if(move_uploaded_file($_FILES["myFile"]["tmp_name"], $targetFilePath)){
         // Insert image file name into database
-        $sql="UPDATE user_account SET avatar ='$fileName' WHERE id=$id";
+        $sql="UPDATE account SET avatar ='$fileName' WHERE id=$id";
         $insert =  mysqli_query($conn,$sql);
         if($insert==true){
             $profile = "Chỉnh sửa thông tin thành công";

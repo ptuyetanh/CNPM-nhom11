@@ -9,7 +9,7 @@ if(!$conn){
     die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
 }
 //truy vấn cơ sở dữ liệu
-$sql = "SELECT * FROM user_account where id = $id";
+$sql = "SELECT * FROM account where id = $id";
 $result =mysqli_query($conn,$sql);
 if(mysqli_num_rows($result)){
     while($row =mysqli_fetch_assoc($result)){
