@@ -5,7 +5,7 @@
     {   
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = "SELECT * FROM user_account WHERE username=?";
+        $sql = "SELECT * FROM account WHERE username=?";
         //$query = mysqli_query($conn,$sql);
         $stmt = mysqli_prepare($conn,$sql);
         mysqli_stmt_bind_param($stmt, "s", $username);

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 15, 2022 lúc 02:50 PM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 8.0.15
+-- Thời gian đã tạo: Th3 16, 2022 lúc 08:56 AM
+-- Phiên bản máy phục vụ: 10.4.20-MariaDB
+-- Phiên bản PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,37 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `fastfood11`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `account`
+--
+
+CREATE TABLE `account` (
+  `id` int(10) NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phonenumber` int(11) NOT NULL,
+  `dateofbirth` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `account`
+--
+
+INSERT INTO `account` (`id`, `email`, `password`, `username`, `fullname`, `avatar`, `status`, `address`, `phonenumber`, `dateofbirth`) VALUES
+(41, 'phamtuyetanh2@gmail.com', '$2y$10$EFXSdjcnF8jab8aThQSb0O6oKcHO8760jhd8BbvrfI1Fidnqz1mQ6', 'tuyetanh', 'Pháº¡m', 'anh-dai-dien-cute-va-dep.jpg', NULL, 'BÃ¬nh Giang', 2147483647, '2001-11-04'),
+(42, 'phamtuyetanh2@gmail.com', '$2y$10$xGsrO6lV/5PFVoYhuQlqCOnIuhjahFCNPxtn/WBzeZiy4K7LNBzS6', 'hihi', '', '', NULL, '', 0, '0000-00-00'),
+(44, 'phamtuyetanh2@gmail.com', '$2y$10$H2tx8RXkFxPLvW1gYTeqxuE1xp43vRgZTIYOL/XXEZSErwG8lzIQe', 'tuyetanh04', '', '', NULL, '', 0, '0000-00-00'),
+(45, 'admin@gmail.com', '111', 'admin', 'admin', '', NULL, '', 0, '0000-00-00'),
+(46, 'phamtuyetanh2@gmail.com', '$2y$10$1s4w5WHABeZnhVR9UttSAuiWxbT7p3PBA/ZKQ8.lRZgrXjSGzLdgi', 'huhu', '', '', NULL, '', 0, '0000-00-00'),
+(47, 'phamtuyetanh2@gmail.com', '$2y$10$hp5rciA6mcBLuKvU2K/qfuflOZID23TilZEw7slTWdbwKzjLy7PpS', 'hahaha', '', '', NULL, '', 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -45,21 +76,6 @@ INSERT INTO `category` (`id_category`, `name_category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
---
-
-CREATE TABLE `order` (
-  `id_order` int(10) UNSIGNED NOT NULL,
-  `amount` int(11) NOT NULL,
-  `date_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `id_product` int(10) UNSIGNED NOT NULL,
-  `id` int(10) NOT NULL,
-  `total _money` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `product`
 --
 
@@ -72,51 +88,21 @@ CREATE TABLE `product` (
   `id_category` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `user_account`
---
-
-CREATE TABLE `user_account` (
-  `id` int(10) NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phonenumber` int(11) NOT NULL,
-  `dateofbirth` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `user_account`
---
-
-INSERT INTO `user_account` (`id`, `email`, `user_password`, `username`, `fullname`, `avatar`, `status`, `address`, `phonenumber`, `dateofbirth`) VALUES
-(41, 'phamtuyetanh2@gmail.com', '$2y$10$EFXSdjcnF8jab8aThQSb0O6oKcHO8760jhd8BbvrfI1Fidnqz1mQ6', 'tuyetanh', 'Pháº¡m', 'coca-cola.jpg', NULL, 'BÃ¬nh Giang', 2147483647, '2001-03-03'),
-(42, 'phamtuyetanh2@gmail.com', '$2y$10$xGsrO6lV/5PFVoYhuQlqCOnIuhjahFCNPxtn/WBzeZiy4K7LNBzS6', 'hihi', '', '', NULL, '', 0, '0000-00-00'),
-(44, 'phamtuyetanh2@gmail.com', '$2y$10$H2tx8RXkFxPLvW1gYTeqxuE1xp43vRgZTIYOL/XXEZSErwG8lzIQe', 'tuyetanh04', '', '', NULL, '', 0, '0000-00-00');
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id_category`);
-
---
--- Chỉ mục cho bảng `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`id_order`),
-  ADD KEY `fk_foreign_product` (`id_product`),
-  ADD KEY `fk_foreign_user` (`id`);
 
 --
 -- Chỉ mục cho bảng `product`
@@ -126,14 +112,14 @@ ALTER TABLE `product`
   ADD KEY `fk_foreign_category` (`id_category`);
 
 --
--- Chỉ mục cho bảng `user_account`
---
-ALTER TABLE `user_account`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `account`
+--
+ALTER TABLE `account`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -142,33 +128,14 @@ ALTER TABLE `category`
   MODIFY `id_category` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `order`
---
-ALTER TABLE `order`
-  MODIFY `id_order` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT cho bảng `user_account`
---
-ALTER TABLE `user_account`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_product` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
-
---
--- Các ràng buộc cho bảng `order`
---
-ALTER TABLE `order`
-  ADD CONSTRAINT `fk_foreign_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
-  ADD CONSTRAINT `fk_foreign_user` FOREIGN KEY (`id`) REFERENCES `user_account` (`id`);
 
 --
 -- Các ràng buộc cho bảng `product`
