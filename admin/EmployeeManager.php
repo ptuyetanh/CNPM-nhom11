@@ -70,7 +70,6 @@
     <main>
         <div class="container">
           <h3 class="text-center text-warning employeeManager" >Thông tin nhân viên</h3>
-          <form action="process-product.php">
           <?php
       if(isset($_GET['add'])){
           echo "<h5 style='color:green' class='text-center'> {$_GET['add']} </h5>";
@@ -81,9 +80,8 @@
           echo "<h5 style='color:red' class='text-center'> {$_GET['error']} </h5>";
       }
       ?> 
-          </form>
           <div>
-            <a class="btn pe-3 ps-3 text-light mb-3" href="" style="background-color:rgb(255, 145, 0)">Thêm nhân viên</a>
+            <a class="btn pe-3 ps-3 text-light mb-3" href="add_Employee.php" style="background-color:rgb(255, 145, 0)">Thêm nhân viên</a>
           </div>
           <table class="table table-bordered table-hover border-warning">
             <thead style="background-color:rgb(255, 145, 0)">
@@ -95,6 +93,7 @@
                 <th scope="col" class="text-light text-center">Ảnh đại diện</th>
                 <th scope="col" class="text-light text-center">Ngày sinh</th>
                 <th scope="col" class="text-light text-center">Số điện thoại</th>
+                <th scope="col" class="text-light text-center">Địa chỉ</th>
                 <th scope="col" class="text-light text-center">Trạng thái</th>
                 <th scope="col" class="text-light text-center">Sửa</th>
                 <th scope="col" class="text-light text-center">Xóa</th>
@@ -120,6 +119,7 @@
                           echo '<td><img src="'.$avatar.'" alt="" width="100" height="100" class="rounded-circle"></td>'?>
                           <td class="text-center"><?php echo $row['dateofbirth'];?></td>
                           <td class="text-center"><?php echo $row['phonenumber'];?></td>
+                          <td class="text-center"><?php echo $row['address'];?></td>
                           <td class="text-center"><?php echo $row['status'];?></td>
                           <td class="text-center">Sửa</td>
                           <td class="text-center"><i class="bi bi-trash"></i></td>
