@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
   session_start();
   if(!isset($_SESSION['isLoginOK'])){
     header("location:login.php");
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,11 +40,11 @@
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ SẢN PHẨM</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="EmployeeManager.php"><i
+                                <a class="nav-link active text-light"  href="EmployeeManager.php"><i
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ NHÂN VIÊN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="#"><i
+                                <a class="nav-link active text-light" href="#"><i
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ THÀNH VIÊN</a>
                             </li>
                         </ul>
@@ -69,7 +69,7 @@
     </div>
     <main>
         <div class="container">
-          <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
+          <h3 class="text-center text-warning employeeManager" >Thông tin nhân viên</h3>
           <form action="process-product.php">
           <?php
       if(isset($_GET['add'])){
@@ -80,56 +80,58 @@
       if(isset($_GET['error'])){
           echo "<h5 style='color:red' class='text-center'> {$_GET['error']} </h5>";
       }
-      ?>
+      ?> 
           </form>
           <div>
-            <a class="btn pe-3 ps-3 text-light mb-3" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
+            <a class="btn pe-3 ps-3 text-light mb-3" href="" style="background-color:rgb(255, 145, 0)">Thêm nhân viên</a>
           </div>
           <table class="table table-bordered table-hover border-warning">
             <thead style="background-color:rgb(255, 145, 0)">
               <tr>
-                <th scope="col" class="text-light text-center">Tên sản phẩm</th>
-                <th scope="col" class="text-light text-center">Hình ảnh</th>
-                <th scope="col" class="text-light text-center">Mô tả </th>
-                <th scope="col" class="text-light text-center">Giá</th>
-                <th scope="col" class="text-light text-center">Thể loại</th>
+                <th scope="col" class="text-light text-center">Họ và Tên</th>
+                <th scope="col" class="text-light text-center">Tên tài khoản</th>
+                <th scope="col" class="text-light text-center">Email</th>
+                <th scope="col" class="text-light text-center">Mật khẩu</th>
+                <th scope="col" class="text-light text-center">Ảnh đại diện</th>
+                <th scope="col" class="text-light text-center">Ngày sinh</th>
+                <th scope="col" class="text-light text-center">Số điện thoại</th>
+                <th scope="col" class="text-light text-center">Trạng thái</th>
                 <th scope="col" class="text-light text-center">Sửa</th>
+                <th scope="col" class="text-light text-center">Xóa</th>
               </tr>
             </thead>
             <tbody>
-            <?php
+             <?php
                  $conn = mysqli_connect('localhost','root','','fastfood11');
                  if(!$conn){
                    die("kết nối thất bại");
                  }
-                 $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+                 $sql = "SELECT * FROM account WHERE status='1'";
                  $result = mysqli_query($conn,$sql);
                  if(mysqli_num_rows($result) > 0){
                    while($row = mysqli_fetch_assoc($result)){
                      ?>
                         <tr> 
-                          <td class="text-center"><?php echo $row['name'];?></td>
-                          <?php  $image_name = 'uploads/'.$row["image_name"];
-                          echo '<td class="text-center"><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
-                           <td class="text-center"><?php echo $row['description'];?></td>
-                          <td class="text-center"><?php echo $row['price'];?></td>
-                          <td class="text-center"><?php echo $row['name_category'];?></td>
-                          <td class="text-center"><a href="repair-product.php?id=<?php echo $row['id_product'];?>">sửa</a></td>
+                          <td class="text-center"><?php echo $row['fullname'];?></td>
+                          <td class="text-center"><?php echo $row['username'];?></td>
+                          <td class="text-center"><?php echo $row['email'];?></td>
+                          <td class="text-center"><?php echo $row['password'];?></td>
+                          <?php  $avatar = 'uploads/'.$row["avatar"];
+                          echo '<td><img src="'.$avatar.'" alt="" width="100" height="100" class="rounded-circle"></td>'?>
+                          <td class="text-center"><?php echo $row['dateofbirth'];?></td>
+                          <td class="text-center"><?php echo $row['phonenumber'];?></td>
+                          <td class="text-center"><?php echo $row['status'];?></td>
+                          <td class="text-center">Sửa</td>
+                          <td class="text-center"><i class="bi bi-trash"></i></td>
                         <tr>
                        <?php     
                    }
                  }
-            ?>
+            ?> 
             </tbody>
           </table>
         </div>
     </main>
-
-
-
-
-
-
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
