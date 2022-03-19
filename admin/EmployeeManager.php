@@ -122,7 +122,7 @@
                           <td class="text-center"><?php echo $row['address'];?></td>
                           <td class="text-center"><?php echo $row['status'];?></td>
                           <td class="text-center">Sửa</td>
-                          <td class="text-center"><i class="bi bi-trash"></i></td>
+                          <td><a href="deleteEmployee.php?id=<?php echo $row['id'];?>"><i class="bi bi-trash"></i></a></td>
                         <tr>
                        <?php     
                    }
