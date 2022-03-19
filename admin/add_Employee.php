@@ -67,7 +67,7 @@
     <main class="main_add_Employee">
         <h3 class="text-center text-warning" style="margin-top:100px;">THÊM TÀI KHOẢN NHÂN VIÊN</h3>
         <form class="container" action="process-add_Employee.php" method="post" enctype="multipart/form-data">
-            <div class="row ms-5">
+            <div class="row">
                 <div class="col-md-4">
                     <img src="./img/no-image.jpg" class="img-fluid mt-5 rounded-circle" width="370" height="370" alt=""
                         id="image">
