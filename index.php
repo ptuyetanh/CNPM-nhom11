@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['isLoginOK'])){
+    header("location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,385 +11,125 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link rel="stylesheet" href="./css/style.css">
-  <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <title>Admin page</title>
 </head>
 
 <body>
-  <!-- header -->
-  <div class="container header">
-    <div class="col-md-12">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top"style="background-color:rgb(255, 145, 0)">
-        <div class="container-fluid">
-          <a class="navbar-brand logo" href="index.php">
-            <img src="./img/logo.PNG" alt="" width="60" height="45">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header"
-            aria-controls="header" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-list"></i>
-          </button>
-          <div class="collapse navbar-collapse justify-content-md-center ms-5" id="header">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.php"><i class="bi bi-house me-1"></i>TRANG CHỦ</a>
-              </li>
-              <li class="nav-item dropdown menu_food">
-                <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-bs-toggle="dropdown"
-                  aria-expanded="false"><i class="bi bi-menu-up me-1"></i>LỌC SẢN PHẨM</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdown" style="background-color:rgb(255, 145, 0)">
-                  <li><a class="dropdown-item text-light" href="#scrollspy_chicken">Gà rán</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item text-light" href="#scrollspy_Đồ_ăn_vặt">Đồ ăn vặt</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item text-light" href="#scrollspy_pizza">pizza</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item text-light" href="#scrollspy_Đồ_uống">Đồ uống</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">KHUYẾN MÃI</a>
-              </li>
-              <form class="ms-3">
-                <div class="input-group me-5">
-                  <input type="text" class="form-control pe-5 border border-light text-light" style="background-color:rgb(255, 145, 0)"
-                    placeholder="Tìm kiếm" aria-label="Tìm kiếm" aria-describedby="basic-addon1">
-                  <span class="input-group-text text-light" id="basic-addon1" style="background-color:rgb(255, 145, 0)"><i
-                      class="bi bi-search"></i></span>
+   <!-- header -->
+   <div class="container-fluid">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:rgb(255, 145, 0)">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./img/logo.PNG" alt="" width="60" height="45">
+                        <span class="navbar-brand mb-0 h1 text-light">ADMIN</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-md-center ms-5" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" aria-current="page" href="index.php"><i
+                                        class="bi bi-plus-square me-1"></i>QUẢN LÝ SẢN PHẨM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" aria-current="page" href="EmployeeManager.php"><i
+                                        class="bi bi-plus-square me-1"></i>QUẢN LÝ NHÂN VIÊN</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" aria-current="page" href="#"><i
+                                        class="bi bi-plus-square me-1"></i>QUẢN LÝ THÀNH VIÊN</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="dropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><img src="./img/no-image.jpg" alt=""
+                                        class="rounded-circle" width="36" height="36">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdown">
+                                    <li><a class="dropdown-item" href="login.php"><i class="bi bi-box-arrow-right me-3"></i>Đăng
+                                            xuất</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </form>
-            </ul>
-          </div>
-          <div class="collapse navbar-collapse" id="header">
-            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.php"><i class="bi bi-cart me-1"></i>ĐẶT HÀNG</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active me-2" href="login.php">ĐĂNG NHẬP</a>
-              </li>
-              <li class="nav-item">
-                <!-- <button class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</button> -->
-                <a href="register.php" class="nav-link active border border-white rounded-pill pe-3 ps-3" style="background-color:rgb(255, 145, 1)">ĐĂNG KÝ</a>
-              </li>
-            </ul>
-          </div>
+            </nav>
         </div>
-      </nav>
     </div>
-  </div>
-   <!-- main -->
-   <main class="main" style="background-color:rgb(255, 219, 172)">
-    <!-- main_header -->
-    <div class="main_header mt-4">
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./img/1.PNG" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block mb-3">
-              <h5 class="fs-1">Fast food 11</h5>
-              <p class="fs-2">Hãy tận hưởng những món ăn ngon tại cửa hàng của chúng tôi</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./img/1.PNG" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block mb-3">
-              <h5 class="fs-1">Fast food 11</h5>
-              <p class="fs-2">Luôn luôn sẵn sàng phục vụ quý khách</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./img/2.PNG" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block mb-5">
-              <h5 class="fs-1">Fast food 11</h5>
-              <p class="fs-2">Với chương trình khuyến mãi hấp dẫn</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <!-- main_nab -->
-    <div class="main_nab" id="product">
-      <ul class="nav nav-tabs justify-content-md-center" style="background-color:rgb(255, 145, 0)">
-        <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" style="background-color:rgb(255, 145, 1)"
-            href="#scrollspy_all">TẤT CẢ</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button"
-            aria-expanded="false" style="background-color:rgb(255, 145, 0)">LỌC SẢN PHẨM</a>
-          <ul class="dropdown-menu" style="background-color:rgb(255, 145, 0)">
-            <li><a class="dropdown-item text-light" href="#scrollspy_chicken">Gà rán</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item text-light" href="#scrollspy_Đồ_ăn_vặt">Đồ ăn vặt</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item text-light" href="#scrollspy_pizza">pizza</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item text-light" href="#scrollspy_Đồ_uống">Đồ uống</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- main_food -->
-    <div data-bs-spy="scroll" data-bs-target="#product" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-      <!-- Tất cả món -->
-      <div class="container-fluid mt-5" id="scrollspy_all">
-        <div class="menu row">
+    <main>
+        <div class="container">
+          <h3 class="text-center text-primary product" >Thông tin sản phẩm</h3>
+          <form action="process-product.php">
           <?php
-      $conn = mysqli_connect('localhost','root','','fastfood11');
-      if(!$conn){
-        die("kết nối thất bại");
+      if(isset($_GET['add'])){
+          echo "<h5 style='color:green' class='text-center'> {$_GET['add']} </h5>";
       }
-      $sql = "SELECT * FROM product";
-      $result = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_assoc($result)){
       ?>
-          <div class="col-md">
-            <div class="card" style="width: 18rem;">
-              <?php  $image_name = 'admin/uploads/'.$row["image_name"];
-              echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['name'];?>
-                </h5>
-                <p class="card-text">
-                  <?php echo $row['description'];?>
-                </p>
-                <p class="price"><span>
-                    <?php echo $row['price'];?>
-                  </span><sup>đ</sup></p>
-                <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)" href="login.php">Đặt hàng</a>
-              </div>
-            </div>
-          </div>
-          <?php     
-                  }
-                }
-      ?>
-        </div>
-      </div>
-      <hr>
-      <!-- Lọc sản phẩm -->
-      <!-- Gà rán -->
-      <div class="container-fluid" id="scrollspy_chicken">
-        <h2 class="text-center">Gà rán</h2>
-        <div class="menu row">
-          <?php
-      $conn = mysqli_connect('localhost','root','','fastfood11');
-      if(!$conn){
-        die("kết nối thất bại");
+         <?php
+      if(isset($_GET['error'])){
+          echo "<h5 style='color:red' class='text-center'> {$_GET['error']} </h5>";
       }
-      $sql = "SELECT * FROM product WHERE id_category = 1";
-      $result = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_assoc($result)){
       ?>
-          <div class="col-md">
-            <div class="card" style="width: 18rem;">
-              <?php  $image_name = 'admin/uploads/'.$row["image_name"];
-              echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['name'];?>
-                </h5>
-                <p class="card-text">
-                  <?php echo $row['description'];?>
-                </p>
-                <p class="price"><span>
-                    <?php echo $row['price'];?>
-                  </span><sup>đ</sup></p>
-                <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)" href="login.php">Đặt hàng</a>
-              </div>
-            </div>
+          </form>
+          <div>
+            <a class="btn pe-3 ps-3 text-light mb-3" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
           </div>
-          <?php     
-                  }
-                }
-      ?>
+          <table class="table table-bordered table-hover border-warning">
+            <thead style="background-color:rgb(255, 145, 0)">
+              <tr>
+                <th scope="col" class="text-light text-center">Tên sản phẩm</th>
+                <th scope="col" class="text-light text-center">Hình ảnh</th>
+                <th scope="col" class="text-light text-center">Mô tả </th>
+                <th scope="col" class="text-light text-center">Giá</th>
+                <th scope="col" class="text-light text-center">Thể loại</th>
+                <th scope="col" class="text-light text-center">Sửa</th>
+                <th scope="col" class="text-light text-center">Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php
+                 $conn = mysqli_connect('localhost','root','','fastfood11');
+                 if(!$conn){
+                   die("kết nối thất bại");
+                 }
+                 $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+                 $result = mysqli_query($conn,$sql);
+                 if(mysqli_num_rows($result) > 0){
+                   while($row = mysqli_fetch_assoc($result)){
+                     ?>
+                        <tr> 
+                          <td class="text-center"><?php echo $row['name'];?></td>
+                          <?php  $image_name = 'uploads/'.$row["image_name"];
+                          echo '<td class="text-center"><img src="'.$image_name.'" alt="" width="100" height="100"></td>'?>
+                           <td class="text-center"><?php echo $row['description'];?></td>
+                          <td class="text-center"><?php echo $row['price'];?></td>
+                          <td class="text-center"><?php echo $row['name_category'];?></td>
+                          <td class="text-center"><a href="repair-product.php?id=<?php echo $row['id_product'];?>"><i class="bi bi-pen-fill"></i></a></td>
+                          <td><a href="deleteProduct.php?id=<?php echo $row['id_product'];?>"><i class="bi bi-trash"></i></a></td>
+                        <tr>
+                       <?php     
+                   }
+                 }
+            ?>
+            </tbody>
+          </table>
         </div>
-      </div>
-      <hr>
-      <!-- Pizza -->
-      <div class="container-fluid" id="scrollspy_pizza">
-        <h2 class="text-center">Pizza</h2>
-        <div class="menu row">
-          <?php
-      $conn = mysqli_connect('localhost','root','','fastfood11');
-      if(!$conn){
-        die("kết nối thất bại");
-      }
-      $sql = "SELECT * FROM product WHERE id_category = 2";
-      $result = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_assoc($result)){
-      ?>
-          <div class="col-md">
-            <div class="card" style="width: 18rem;">
-              <?php  $image_name = 'admin/uploads/'.$row["image_name"];
-              echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['name'];?>
-                </h5>
-                <p class="card-text">
-                  <?php echo $row['description'];?>
-                </p>
-                <p class="price"><span>
-                    <?php echo $row['price'];?>
-                  </span><sup>đ</sup></p>
-                <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)" href="login.php">Đặt hàng</a>
-              </div>
-            </div>
-          </div>
-          <?php     
-                  }
-                }
-      ?>
-        </div>
-      </div>
-      <hr>
-      <!-- Đồ ăn vặt -->
-      <div class="container-fluid" id="scrollspy_Đồ_ăn_vặt">
-        <h2 class="text-center">Đồ ăn vặt</h2>
-        <div class="menu row">
-          <?php
-      $conn = mysqli_connect('localhost','root','','fastfood11');
-      if(!$conn){
-        die("kết nối thất bại");
-      }
-      $sql = "SELECT * FROM product WHERE id_category = 3";
-      $result = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_assoc($result)){
-      ?>
-          <div class="col-md">
-            <div class="card" style="width: 18rem;">
-              <?php  $image_name = 'admin/uploads/'.$row["image_name"];
-              echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['name'];?>
-                </h5>
-                <p class="card-text">
-                  <?php echo $row['description'];?>
-                </p>
-                <p class="price"><span>
-                    <?php echo $row['price'];?>
-                  </span><sup>đ</sup></p>
-                <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)" href="login.php">Đặt hàng</a>
-              </div>
-            </div>
-          </div>
-          <?php     
-                  }
-                }
-      ?>
-        </div>
-      </div>
-      <hr>
-      <!-- Đồ uống -->
-      <div class="container-fluid" id="scrollspy_Đồ_uống">
-        <h2 class="text-center">Đồ uống</h2>
-        <div class="menu row">
-          <?php
-      $conn = mysqli_connect('localhost','root','','fastfood11');
-      if(!$conn){
-        die("kết nối thất bại");
-      }
-      $sql = "SELECT * FROM product WHERE id_category = 4";
-      $result = mysqli_query($conn,$sql);
-      if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_assoc($result)){
-      ?>
-          <div class="col-md">
-            <div class="card" style="width: 18rem;">
-              <?php  $image_name = 'admin/uploads/'.$row["image_name"];
-              echo '<td><img src="'.$image_name.'"  class="card-img-top" width="300" height="300"></td>'?>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['name'];?>
-                </h5>
-                <p class="card-text">
-                  <?php echo $row['description'];?>
-                </p>
-                <p class="price"><span>
-                    <?php echo $row['price'];?>
-                  </span><sup>đ</sup></p>
-                <a class="btn-add btn pe-5 ps-5 ms-5" style="background-color:rgb(255, 145, 0)" href="login.php">Đặt hàng</a>
-              </div>
-            </div>
-          </div>
-          <?php     
-                  }
-                }
-      ?>
-        </div>
-      </div>
-      <hr>
-    </div>
-  </main>
-  <!-- footer -->
-  <footer style="background-color:rgb(255, 145, 0)" >
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active text-light" aria-current="page" href="#">Liên hệ</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">Điều khoản & chính sách</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">Phản hồi ý kiến</a>
-      </li>
-    </ul>
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active text-light" aria-current="page" href="#"><i class="bi bi-facebook"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#"><i class="bi bi-messenger"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#"><i class="bi bi-youtube"></i></a>
-      </li>
-    </ul>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    </main>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
