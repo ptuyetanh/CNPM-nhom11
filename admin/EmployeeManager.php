@@ -121,7 +121,7 @@
                           <td class="text-center"><?php echo $row['phonenumber'];?></td>
                           <td class="text-center"><?php echo $row['address'];?></td>
                           <td class="text-center"><?php echo $row['status'];?></td>
-                          <td class="text-center">Sửa</td>
+                          <td class="text-center"><a href="repair-account.php?id=<?php echo $row['id'];?>">sửa</a></td>
                           <td><a href="deleteEmployee.php?id=<?php echo $row['id'];?>"><i class="bi bi-trash"></i></a></td>
                         <tr>
                        <?php     
