@@ -94,6 +94,7 @@
                 <th scope="col" class="text-light text-center">Giá</th>
                 <th scope="col" class="text-light text-center">Thể loại</th>
                 <th scope="col" class="text-light text-center">Sửa</th>
+                <th scope="col" class="text-light text-center">Xóa</th>
               </tr>
             </thead>
             <tbody>
@@ -114,7 +115,8 @@
                            <td class="text-center"><?php echo $row['description'];?></td>
                           <td class="text-center"><?php echo $row['price'];?></td>
                           <td class="text-center"><?php echo $row['name_category'];?></td>
-                          <td class="text-center"><a href="repair-product.php?id=<?php echo $row['id_product'];?>">sửa</a></td>
+                          <td class="text-center"><a href="repair-product.php?id=<?php echo $row['id_product'];?>"><i class="bi bi-pen-fill"></i></a></td>
+                          <td><a href="deleteProduct.php?id=<?php echo $row['id_product'];?>"><i class="bi bi-trash"></i></a></td>
                         <tr>
                        <?php     
                    }
@@ -124,11 +126,6 @@
           </table>
         </div>
     </main>
-
-
-
-
-
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
