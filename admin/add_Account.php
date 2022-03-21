@@ -130,7 +130,7 @@
                         <input type="text" name="address" class="form-control" id="floatingInput" value="">
                         <label for="floatingInput">Address</label>
                     </div>
-                    <input type="submit" name="submit" value="Lưu nhân viên"
+                    <input type="submit" name="submit" value="Lưu thành viên"
                     class="submit_product fs-3 pe-3 ps-3 mt-4 ms-5 pt-1 pb-1 rounded-pill border border-light mt-5"
                     style="background-color:rgb(255, 145, 0)">
                 </div>

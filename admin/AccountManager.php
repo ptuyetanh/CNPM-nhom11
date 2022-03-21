@@ -69,9 +69,9 @@
 
     <main>
         <div class="container">
-            <h3 class="text-center text-warning accountManager">Thông tin thành viên</h3>
+            <h3 class="text-center text-warning employeeManager">Thông tin thành viên</h3>
             <?php 
-                if(isset(_$GET['add'])){
+                if(isset($_GET['add'])){
                     echo "<h5 style='color:green' class='text-center'> {$_GET['add']} </h5>";
                 }
             ?>
@@ -82,12 +82,61 @@
             ?>
 
             <div>
-                <a href="add_Account.php" class="btn" style="background-color:rgb(255, 145, 0)">Thêm thành viên</a>
+                <a href="add_Account.php" class="btn pe-3 ps-3 text-light mb-3" style="background-color:rgb(255, 145, 0)">Thêm thành viên</a>
             </div>
-
+            
+            <table class="table table-bordered table-hover border-warning">
+            <thead style="background-color:rgb(255, 145, 0)">
+              <tr>
+                <th scope="col" class="text-light text-center">Họ và Tên</th>
+                <th scope="col" class="text-light text-center">Tên tài khoản</th>
+                <th scope="col" class="text-light text-center">Email</th>
+                <th scope="col" class="text-light text-center">Mật khẩu</th>
+                <th scope="col" class="text-light text-center">Ảnh đại diện</th>
+                <th scope="col" class="text-light text-center">Ngày sinh</th>
+                <th scope="col" class="text-light text-center">Số điện thoại</th>
+                <th scope="col" class="text-light text-center">Địa chỉ</th>
+                <th scope="col" class="text-light text-center">Trạng thái</th>
+                <th scope="col" class="text-light text-center">Sửa</th>
+                <th scope="col" class="text-light text-center">Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+             <?php
+                 $conn = mysqli_connect('localhost','root','','fastfood11');
+                 if(!$conn){
+                   die("kết nối thất bại");
+                 }
+                 $sql = "SELECT * FROM account WHERE status='1'";
+                 $result = mysqli_query($conn,$sql);
+                 if(mysqli_num_rows($result) > 0){
+                   while($row = mysqli_fetch_assoc($result)){
+                     ?>
+                        <tr> 
+                          <td class="text-center"><?php echo $row['fullname'];?></td>
+                          <td class="text-center"><?php echo $row['username'];?></td>
+                          <td class="text-center"><?php echo $row['email'];?></td>
+                          <td class="text-center"><?php echo $row['password'];?></td>
+                          <?php  $avatar = 'uploads/'.$row["avatar"];
+                          echo '<td><img src="'.$avatar.'" alt="" width="100" height="100" class="rounded-circle"></td>'?>
+                          <td class="text-center"><?php echo $row['dateofbirth'];?></td>
+                          <td class="text-center"><?php echo $row['phonenumber'];?></td>
+                          <td class="text-center"><?php echo $row['address'];?></td>
+                          <td class="text-center"><?php echo $row['status'];?></td>
+                          <td class="text-center"><a href="repair-account.php?id=<?php echo $row['id'];?>">sửa</a></td>
+                          <td><a href="deleteEmployee.php?id=<?php echo $row['id'];?>"><i class="bi bi-trash"></i></a></td>
+                        <tr>
+                       <?php     
+                   }
+                 }
+            ?> 
+            </tbody>
+          </table>
         </div>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
