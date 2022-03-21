@@ -107,7 +107,7 @@ if(isset($_POST["sửa"])){
         <form class="container" action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 
-                <div class="col-md-5">
+                <div class="col-md-5 " style="margin-left: 400px;" >
                     <div class="product_input mt-5">
                         <div class="form-floating mt-2 mb-3">
                             <input type="text" id="inputname" name="fullname" class="form-control" id="floatingInput"

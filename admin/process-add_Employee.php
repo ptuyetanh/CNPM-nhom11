@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = mysqli_connect('localhost','root','','fastfood11');
 if(!$conn){
     die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
@@ -22,7 +23,7 @@ $fileName = basename($_FILES["myFile"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);//bắt định dạng tệp tin
 
-if(isset($_POST["submit"]) && !empty($_FILES["myFile"]["name"])){
+if(isset($_POST["submit"]) && $status==1 && !empty($_FILES["myFile"]["name"])){
 $allowTypes = array('jpg','png','jpeg','gif','pdf','JPG');//khai báo mảng để lưu chữ định dang mà bạn upload lên
 if(in_array($fileType, $allowTypes)){
     // Upload file to server
@@ -49,10 +50,4 @@ if(in_array($fileType, $allowTypes)){
     $error = "Nhân viên thêm không thành công";
     header("Location:EmployeeManager.php?error=$error");
 }
-// Display status message
-echo $statusMsg;
-//Xử lý update ảnh bìa
-$statusMsg = '';
-
-
 ?>
