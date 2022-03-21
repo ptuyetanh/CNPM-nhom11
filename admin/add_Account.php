@@ -65,7 +65,7 @@
     </div>
     <!--main -->
     <main class="main_add_Employee">
-        <h3 class="text-center text-warning" style="margin-top:100px;">THÊM TÀI KHOẢN NHÂN VIÊN</h3>
+        <h3 class="text-center text-warning" style="margin-top:100px;">THÊM TÀI KHOẢN THÀNH VIÊN</h3>
         <form class="container" action="process-add_Employee.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4">

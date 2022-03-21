@@ -44,7 +44,7 @@
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ NHÂN VIÊN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-light" href="#"><i
+                                <a class="nav-link active text-light" href="AccountManager.php"><i
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ THÀNH VIÊN</a>
                             </li>
                         </ul>
