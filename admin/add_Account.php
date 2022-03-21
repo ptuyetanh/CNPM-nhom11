@@ -66,7 +66,7 @@
     <!--main -->
     <main class="main_add_Employee">
         <h3 class="text-center text-warning" style="margin-top:100px;">THÊM TÀI KHOẢN THÀNH VIÊN</h3>
-        <form class="container" action="" method="post" enctype="multipart/form-data">
+        <form class="container" action="proccess-add_Account.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4">
                     <img src="./img/no-image.jpg" class="img-fluid mt-5 rounded-circle" width="370" height="370" alt=""
@@ -116,7 +116,7 @@
                                 <label for="floatingInput">Password</label>
                             </div>
                             <div class="form-floating mt-4">
-                                <input type="text" name="status" class="form-control" id="floatingInput" value="NULL">
+                                <input type="text" name="status" class="form-control" placeholder ="NULL" id="floatingInput" value="NULL" readonly>
                                 <label for="floatingInput">Trạng thái</label>
                             </div>
                             <div class="form-floating row">
