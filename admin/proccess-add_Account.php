@@ -31,22 +31,22 @@ if(in_array($fileType, $allowTypes)){
         $sql="INSERT INTO account (fullname,username,email,password,avatar,dateofbirth,phonenumber,address,status) VALUES ('".$fullname."','".$username."','".$email."','".$password."','".$fileName."','".$dateofbirth."','".$phonenumber."','".$address."','".$status."')";
         $insert =  mysqli_query($conn,$sql);
         if($insert==true){
-            $add = "Nhân viên đã được thêm thành công";
+            $add = "Thành viên đã được thêm thành công";
             header("Location:AccountManager.php?add=$add");
         }else{
-            $error = "Nhân viên thêm không thành công";
+            $error = "Thành viên thêm không thành công";
             header("Location:AccountManager.php?error=$error");
         } 
     }else{
-        $error = "Nhân viên thêm không thành công";
+        $error = "Thành viên thêm không thành công";
         header("Location:AccountManager.php?error=$error");
     }
 }else{
-    $error = "Nhân viên thêm không thành công";
+    $error = "Thành viên thêm không thành công";
     header("Location:AccountManager.php?error=$error");
 }
 }else{
-    $error = "Nhân viên thêm không thành công";
+    $error = "Thành viên thêm không thành công";
     header("Location:AccountManager.php?error=$error");
 }
 // Display status message
