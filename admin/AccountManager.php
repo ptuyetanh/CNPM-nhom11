@@ -96,8 +96,7 @@
                 <th scope="col" class="text-light text-center">Ngày sinh</th>
                 <th scope="col" class="text-light text-center">Số điện thoại</th>
                 <th scope="col" class="text-light text-center">Địa chỉ</th>
-                <th scope="col" class="text-light text-center">Trạng thái</th>
-                
+                <th scope="col" class="text-light text-center">Trạng thái</th>               
                 <th scope="col" class="text-light text-center">Xóa</th>
               </tr>
             </thead>
@@ -107,7 +106,7 @@
                  if(!$conn){
                    die("kết nối thất bại");
                  }
-                 $sql = "SELECT * FROM account WHERE status='1'";
+                 $sql = "SELECT * FROM account WHERE status='NULL'";
                  $result = mysqli_query($conn,$sql);
                  if(mysqli_num_rows($result) > 0){
                    while($row = mysqli_fetch_assoc($result)){
@@ -127,7 +126,7 @@
                           <td><a href="#del<?php echo $row['id']; ?>" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span>xóa</a></td>
                           <?php
                               include("button.php");
-                          ?>
+                          ?>                       
                         <tr>
                        <?php     
                    }

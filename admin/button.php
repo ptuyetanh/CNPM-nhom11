@@ -11,7 +11,7 @@
                 $drow=mysqli_fetch_array($number);
             ?>
             <div class="container-fluid">
-                <h5><center>Bạn có muốn xóa tài khoản nhân viên này không? </strong> </center></h5> 
+                <h5><center>Bạn có muốn xóa không? </strong> </center></h5> 
             </div> 
             </div>
             <div class="modal-footer">
