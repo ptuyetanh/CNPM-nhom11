@@ -85,9 +85,9 @@ if(isset($_POST["sửa"])){
     $matkhau = $_POST['password'];
     $ngaysinh = $_POST['dateofbirth'];
     $sdt = $_POST['phonenumber'];
-    $trangthai = $_POST['status'];
+    
    
-        $sql ="UPDATE account SET fullname ='$hovaten'  , username= '$tentaikhoan', email= '$email', password= '$matkhau', dateofbirth= '$ngaysinh', phonenumber= '$sdt', status= '$trangthai' WHERE id='$id'";
+        $sql ="UPDATE account SET fullname ='$hovaten'  , username= '$tentaikhoan', email= '$email', password= '$matkhau', dateofbirth= '$ngaysinh', phonenumber= '$sdt'WHERE id='$id'";
         mysqli_query($conn,$sql);
       
         header("location: EmployeeManager.php?id=$id");
@@ -103,7 +103,7 @@ if(isset($_POST["sửa"])){
      ?>
     <!--main -->
     <main class="main_product">
-        <h2 class="text-center">Sửa thông tin thành viên</h2>
+        <h2 class="text-center">Sửa thông tin nhân viên</h2>
         <form class="container" action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 
@@ -139,11 +139,7 @@ if(isset($_POST["sửa"])){
                                 value="<?php echo $row['phonenumber'];?>">
                             <label for="floatingInput">Số điện thoại</label>
                         </div>
-                        <div class="form-floating mt-4">
-                            <input type="text" id="inputprice" name="status" class="form-control" id="floatingInput"
-                                value="<?php echo $row['status'];?>">
-                            <label for="floatingInput">Trạng thái</label>
-                        </div>
+                        
                         
                         <input type="submit" name="sửa" value="sửa"
                             class="submit_product fs-3 pe-3 ps-3 mt-5 ms-5 pt-1 pb-1 rounded-pill border border-light"
