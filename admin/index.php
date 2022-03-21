@@ -85,7 +85,51 @@
           <div>
             <a class="btn pe-3 ps-3 text-light mb-3" href="product.php" style="background-color:rgb(255, 145, 0)">Thêm</a>
           </div>
-          <table class="table table-bordered table-hover border-warning">
+          <form class="row" method="post">
+            <div class="col-md-2 mb-3">
+                <label for="disabledSelect">Thể loại</label>
+                <select id="disabledSelect" class="form-select" name="category">
+                <?php
+                    $conn = mysqli_connect('localhost','root','','fastfood11');
+                    if(!$conn){
+                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                    }
+                    $sql="SELECT * FROM category";
+                    $result =mysqli_query($conn,$sql);
+                    if($result>0){
+                        while($row =mysqli_fetch_assoc($result)){
+                            $id_category=$row["id_category"];
+                            $name_category=$row["name_category"];
+                            ?>
+                            <option value="<?php echo $id_category;?>"><?php echo $name_category;?></option>
+                <?php
+                      }
+                    }
+                ?>
+                </select>
+            </div>
+            <div class="col-md-3">
+              <input type="submit" name="submit" value="Lọc sản phẩm"
+                class="submit_product mt-4 pe-3 ps-3 pt-2 pb-2 rounded-pill border border-light text-light"
+                style="background-color:rgb(255, 145, 0)">
+                <?php
+                if(isset($_POST["submit"])){
+                    $conn = mysqli_connect('localhost','root','','fastfood11');
+                    if(!$conn){
+                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+                    }
+                    $id_category=$_POST['category'];
+                    $sql = "SELECT * FROM product WHERE id_category LIKE '$id_category'";
+                    $result = mysqli_query($conn,$sql);
+                      if(mysqli_num_rows($result) >0){
+                          //cấp thẻ làm việc
+                          $_SESSION['id_category'] = $id_category;
+                      }
+                      mysqli_close($conn);
+                    }
+                ?>
+            </div>
+            <table class="table table-bordered table-hover border-warning">
             <thead style="background-color:rgb(255, 145, 0)">
               <tr>
                 <th scope="col" class="text-light text-center">Tên sản phẩm</th>
@@ -103,7 +147,7 @@
                  if(!$conn){
                    die("kết nối thất bại");
                  }
-                 $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category";
+                 $sql = "SELECT * FROM product INNER JOIN category on product.id_category=category.id_category WHERE product.id_category='$id_category'";
                  $result = mysqli_query($conn,$sql);
                  if(mysqli_num_rows($result) > 0){
                    while($row = mysqli_fetch_assoc($result)){
@@ -124,8 +168,10 @@
             ?>
             </tbody>
           </table>
+          </from>
         </div>
     </main>
+
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
