@@ -44,7 +44,7 @@
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ NHÂN VIÊN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-light" href="AccountManager.php"><i
+                                <a class="nav-link active text-light" href="#"><i
                                         class="bi bi-plus-square me-1"></i>QUẢN LÝ THÀNH VIÊN</a>
                             </li>
                         </ul>
@@ -122,7 +122,11 @@
                           <td class="text-center"><?php echo $row['address'];?></td>
                           <td class="text-center"><?php echo $row['status'];?></td>
                           <td class="text-center"><a href="repair-account.php?id=<?php echo $row['id'];?>">sửa</a></td>
-                          <td><a href="deleteEmployee.php?id=<?php echo $row['id'];?>"><i class="bi bi-trash"></i></a></td>
+                          <td><a href="#del<?php echo $row['id']; ?>" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span>xóa</a></td>
+                          <?php
+                              include("button.php");
+                          ?>
+                      </form>    
                         <tr>
                        <?php     
                    }
@@ -131,10 +135,22 @@
             </tbody>
           </table>
         </div>
+    </div>
+  </div>
+</div>
     </main>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Page Script -->
+	<script src="assets/js/scripts.js"></script>
+  
 </body>
 
 </html>
