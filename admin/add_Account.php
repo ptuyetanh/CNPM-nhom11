@@ -116,7 +116,7 @@
                                 <label for="floatingInput">Password</label>
                             </div>
                             <div class="form-floating mt-4">
-                                <input type="text" name="status" class="form-control" id="floatingInput" value="">
+                                <input type="text" name="status" class="form-control" id="floatingInput" value="NULL">
                                 <label for="floatingInput">Trạng thái</label>
                             </div>
                             <div class="form-floating row">
