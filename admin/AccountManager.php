@@ -125,7 +125,7 @@
                           
                           <td><a href="#del<?php echo $row['id']; ?>" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span>xóa</a></td>
                           <?php
-                              include("button.php");
+                              include("delete_btn_acc.php");
                           ?>                       
                         <tr>
                        <?php     
