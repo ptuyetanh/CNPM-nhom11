@@ -23,7 +23,7 @@ $fileName = basename($_FILES["myFile"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);//bắt định dạng tệp tin
 
-if(isset($_POST["submit"]) && $status==1 && !empty($_FILES["myFile"]["name"]) && $email !='' && $password !='' && filter_var ($email, FILTER_VALIDATE_EMAIL) == false ){
+if(isset($_POST["submit"]) && $status==1 && !empty($_FILES["myFile"]["name"]) && $email !='' && $password !=''){
 $allowTypes = array('jpg','png','jpeg','gif','pdf','JPG');//khai báo mảng để lưu chữ định dang mà bạn upload lên
 if(in_array($fileType, $allowTypes)){
     // Upload file to server
